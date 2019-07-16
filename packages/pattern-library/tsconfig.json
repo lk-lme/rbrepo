@@ -1,0 +1,15 @@
+{
+  "extends": "./../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "build/lib",
+    "lib": ["es6", "dom"],
+    "allowJs": false,
+    "jsx": "react",
+    "rootDirs": ["src", "stories"],
+    "baseUrl": "src",
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "scripts"]
+}
