@@ -1,6 +1,8 @@
 import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import lmeTheme from './lme-theme';
+// Global styles
+import './../src/styles/styles.scss';
 
 addParameters({
   options: {
