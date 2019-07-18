@@ -1,7 +1,7 @@
 {
   "name": "lme-gui-pattern-library",
   "version": "0.0.1",
-  "description": "",
+  "description": "A React component library designed to help developers build applications for The London Metal Exchange.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
