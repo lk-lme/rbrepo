@@ -17,6 +17,7 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@svgr/webpack": "^4.3.2",
     "@types/jest": "^24.0.15",
     "@types/storybook-readme": "^5.0.3",
     "@types/storybook__react": "^4.0.2",

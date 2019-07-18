@@ -11,5 +11,9 @@
     "moduleResolution": "node"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "scripts"]
+  "exclude": ["node_modules", "build", "scripts"],
+  "files": [
+    "./src/types/global.d.ts",
+    "./.storybook/typings.d.ts"
+  ]
 }
