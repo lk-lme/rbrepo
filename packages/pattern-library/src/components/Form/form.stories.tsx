@@ -2,7 +2,39 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import FormField from './../FormField';
+import FField from './../Field';
 import TextInput from './../TextInput';
+import Radio from './../Radio';
+
+const TextInputField: React.FunctionComponent<TIProps> = ({ id, type, label, hint, field, form }) => {
+  const { name } = field;
+  const { errors, touched } = form;
+
+  return (
+    <FField 
+      name={name}
+      id={id}
+      label={label}
+      hint={hint}
+      errors={touched[name] ? errors[name] : []}
+    >
+      <TextInput id={id} type={type} {...field} />
+    </FField>
+  );
+};
+
+interface TIProps {
+  name: string;
+  id?: string;
+  label: string;
+  hint?: string;
+  field: { [x: string]: string };
+  type?: 'text'|'email'|'password'|'tel';
+  form: {
+    errors: { [x: string]: string };
+    touched: { [x: string]: string };
+  };
+}
 
 storiesOf('Forms/Formik', module)
   .add('basic demo', () => (
@@ -28,9 +60,23 @@ storiesOf('Forms/Formik', module)
     >
       {({ isSubmitting, errors, touched }) => (
         <Form>
-          <FormField name="email" label="Email address" id="email">
+          {/* <Field
+            id="email"
+            name="email"
+            label="Email address"
+            type="email"
+            component={TextInputField}
+          /> */}
+
+          <FormField name="email" label="Email address">
             <TextInput type="email" />
             {/* {({ field }) => <TextInput type="email" {...field} />} */}
+          </FormField>
+
+          <FormField name="metal" label="Select your metal">
+            <Radio label="Bronze" value="bronze" />
+            <Radio label="Silver" value="silver" />
+            <Radio label="Gold" value="gold" />
           </FormField>
 
           <FormField 

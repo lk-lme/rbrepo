@@ -9,7 +9,7 @@ const FormField: React.FunctionComponent<Props> = ({
   errors = [],
   children,
 }) => {
-  const isSet = Array.isArray(children) && children.length > 1;
+  const isSet = React.Children.count(children) > 1;
   const Wrapper = isSet ? 'fieldset' : 'div';
   const Label = isSet ? 'legend' : 'label';
   const errorArr = Array.isArray(errors) ? errors : [errors];
