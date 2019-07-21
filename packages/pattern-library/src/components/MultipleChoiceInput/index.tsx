@@ -25,7 +25,7 @@ const MultipleChoiceInput: React.FunctionComponent<Props> = ({
   </label>
 );
 
-interface Props {
+export interface Props {
   /** The display label. */
   label: string;
   /** The input type. */
