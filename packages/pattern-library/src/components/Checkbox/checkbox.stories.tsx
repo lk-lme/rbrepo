@@ -1,18 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import MultipleChoiceInput from './index';
+import Checkbox from '.';
 
 storiesOf('Forms/Multiple Choice/Checkbox', module)
   .add('un-checked', () => (
-    <MultipleChoiceInput
-      type="checkbox"
+    <Checkbox
       label="Accept terms"
     />
   ))
   .add('checked', () => (
-    <MultipleChoiceInput
+    <Checkbox
       checked
-      type="checkbox"
       label="Accept terms"
     />
   ));
