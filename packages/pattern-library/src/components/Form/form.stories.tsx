@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import FormField from './../FormField';
+import TextInput from './../TextInput';
 
 storiesOf('Forms/Formik', module)
   .add('basic demo', () => (
@@ -24,14 +26,33 @@ storiesOf('Forms/Formik', module)
         }, 400);
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, errors, touched }) => (
         <Form>
-          <label htmlFor="email">Email</label>
-          <Field type="email" name="email" id="email" />
-          <ErrorMessage name="email" component="div" />
-          <label htmlFor="email">Password</label>
-          <Field type="password" name="password" id="password" />
-          <ErrorMessage name="password" component="div" />
+          <FormField name="email" label="Email address" id="email">
+            <TextInput type="email" />
+            {/* {({ field }) => <TextInput type="email" {...field} />} */}
+          </FormField>
+
+          <FormField 
+            name="password"
+            label="Password"
+          >
+            <Field type="password" name="password" id="password" />
+          </FormField>
+
+          {/* <FormField name="metal" label="Choose metals">
+            <Field type="checkbox" id="metal" name="metal" value="bronze" label="Bronze" />
+            <Field type="checkbox" id="metal" name="metal" value="silver" label="Silver" />
+          </FormField> */}
+
+
+          {/* <FormField name="fav-food" label="Favorite food">
+            <Field type="checkbox" name="fav-food" id="fav-food-pizza" value="pizza" />
+            <label htmlFor="fav-food-pizza">Pizza</label>
+            <Field type="checkbox" name="fav-food" id="fav-food-ramen" value="ramen"/>
+            <label htmlFor="fav-food-ramen">Ramen</label>
+          </FormField> */}
+
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>

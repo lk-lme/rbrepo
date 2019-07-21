@@ -1,38 +1,38 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import FormField from './index';
-import MultipleChoiceInput from './../MultipleChoiceInput';
+import Field from './index';
+import MultipleChoiceInput from '../MultipleChoiceInput/index';
 
-storiesOf('Forms/Form Field', module)
+storiesOf('Forms/Field', module)
   .add('basic', () => (
-    <FormField
+    <Field
       name="email"
       label="Email address"
     >
       <input type="text" name="email" id="email" />
-    </FormField>
+    </Field>
   ))
   .add('with hint', () => (
-    <FormField
+    <Field
       name="password"
       label="Password"
       hint="Must contain 8+ characters with at least 1 number and 1 uppercase letter."
     >
       <input type="password" name="password" id="password" />
-    </FormField>
+    </Field>
   ))
   .add('with error', () => (
-    <FormField
+    <Field
       name="password"
       label="Password"
       hint="Must contain 8+ characters with at least 1 number and 1 uppercase letter."
       errors={['Must contain a number.', 'Must contain an uppercase letter.']}
     >
       <input type="password" name="password" id="password" value="mygreattestpass" />
-    </FormField>
+    </Field>
   ))
   .add('with multiple inputs', () => (
-    <FormField
+    <Field
       name="metal"
       label="Select metal"
     >
@@ -48,6 +48,6 @@ storiesOf('Forms/Form Field', module)
         value="silver"
         label="Silver"
       />
-    </FormField>
+    </Field>
   ));
 
