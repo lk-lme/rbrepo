@@ -24,7 +24,7 @@ storiesOf('Forms/Multiple Choice/Radio', module)
       {options.map(({ label, value }) => (
         <div key={value}>
           <MultipleChoiceInput
-            checked
+            checked={value === 'bronze'}
             name="metal"
             type="radio"
             label={label}
