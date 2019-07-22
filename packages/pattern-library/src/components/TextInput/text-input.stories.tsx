@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import TextInput from '.';
 
 const ControlledTextInput = () => {
-  const [val, setVal] = useState();
+  const [val, setVal] = useState('');
 
   return (
     <TextInput
