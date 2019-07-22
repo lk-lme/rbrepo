@@ -61,17 +61,12 @@ storiesOf('Forms/Formik', module)
     >
       {({ isSubmitting, errors, touched }) => (
         <Form>
-          {/* <Field
-            id="email"
-            name="email"
-            label="Email address"
-            type="email"
-            component={TextInputField}
-          /> */}
-
           <FormField name="email" label="Email address">
             <TextInput type="email" />
-            {/* {({ field }) => <TextInput type="email" {...field} />} */}
+          </FormField>
+
+          <FormField name="terms">
+            <Checkbox label="I agree to the terms & conditions" />
           </FormField>
 
           <FormField name="metal" label="Select your metals">
@@ -86,25 +81,9 @@ storiesOf('Forms/Formik', module)
             <Radio label="Two years" value="24m" />
           </FormField>
 
-          <FormField 
-            name="password"
-            label="Password"
-          >
-            <Field type="password" name="password" id="password" />
+          <FormField name="password" label="Password">
+            <TextInput type="password" />
           </FormField>
-
-          {/* <FormField name="metal" label="Choose metals">
-            <Field type="checkbox" id="metal" name="metal" value="bronze" label="Bronze" />
-            <Field type="checkbox" id="metal" name="metal" value="silver" label="Silver" />
-          </FormField> */}
-
-
-          {/* <FormField name="fav-food" label="Favorite food">
-            <Field type="checkbox" name="fav-food" id="fav-food-pizza" value="pizza" />
-            <label htmlFor="fav-food-pizza">Pizza</label>
-            <Field type="checkbox" name="fav-food" id="fav-food-ramen" value="ramen"/>
-            <label htmlFor="fav-food-ramen">Ramen</label>
-          </FormField> */}
 
           <button type="submit" disabled={isSubmitting}>
             Submit

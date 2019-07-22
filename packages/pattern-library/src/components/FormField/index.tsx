@@ -86,13 +86,6 @@ const FormField: React.FunctionComponent<Props> = ({
                         target.checked,
                         React.Children.count(children) > 1,
                       );
-                      // const newValue = getNewMCIValue(
-                      //   type,
-                      //   value,
-                      //   childValue,
-                      //   target.checked,
-                      //   React.Children.count(children) > 1,
-                      // );
                       setFieldValue(name, newValue);
                     },
                   }

@@ -16,18 +16,20 @@ const FormField: React.FunctionComponent<Props> = ({
 
   return (
     <Wrapper className={styles.wrapper}>
-      <Label
-        htmlFor={id}
-      >
-        <span className={styles.label}>
-          {label}
-        </span>
-        {hint && (
-          <span className={styles.hint}>
-            {hint}
+      {label && (
+        <Label
+          htmlFor={id}
+        >
+          <span className={styles.label}>
+            {label}
           </span>
-        )}
-      </Label>
+          {hint && (
+            <span className={styles.hint}>
+              {hint}
+            </span>
+          )}
+        </Label>
+      )}
       {children}
       {errorArr.length !== 0 && (
         <span className={styles.errors}>
@@ -46,8 +48,8 @@ const FormField: React.FunctionComponent<Props> = ({
 
 export interface Props {
   name: string;
-  label: string;
   children: React.ReactNode;
+  label?: string;
   id?: string;
   hint?: string|ReactElement;
   errors?: string|string[];
