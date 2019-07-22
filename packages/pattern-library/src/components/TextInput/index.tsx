@@ -19,10 +19,14 @@ const TextInput: React.FunctionComponent<Props> = ({
 );
 
 interface Props {
+  /** The form field name that data will be stored under. */
   name?: string;
+  /** The plain-text based input options.  */
   type?: 'text'|'email'|'password'|'tel';
+  /** The controlled string value */
   value?: string;
   id?: string;
+  /** The callback function run when the input is checked/un-checked. */
   onChange?(e: React.ChangeEvent): void;
   onBlur?(e: React.FocusEvent): void;
 }
