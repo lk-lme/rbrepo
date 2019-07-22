@@ -47,6 +47,7 @@ const FormField: React.FunctionComponent<Props> = ({
 export interface Props {
   name: string;
   label: string;
+  children: React.ReactNode;
   id?: string;
   hint?: string|ReactElement;
   errors?: string|string[];

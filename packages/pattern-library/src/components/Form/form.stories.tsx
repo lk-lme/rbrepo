@@ -5,6 +5,7 @@ import FormField from './../FormField';
 import FField from './../Field';
 import TextInput from './../TextInput';
 import Radio from './../Radio';
+import Checkbox from './../Checkbox';
 
 const TextInputField: React.FunctionComponent<TIProps> = ({ id, type, label, hint, field, form }) => {
   const { name } = field;
@@ -73,10 +74,16 @@ storiesOf('Forms/Formik', module)
             {/* {({ field }) => <TextInput type="email" {...field} />} */}
           </FormField>
 
-          <FormField name="metal" label="Select your metal">
-            <Radio label="Bronze" value="bronze" />
-            <Radio label="Silver" value="silver" />
-            <Radio label="Gold" value="gold" />
+          <FormField name="metal" label="Select your metals">
+            <Checkbox label="Bronze" value="bronze" />
+            <Checkbox label="Silver" value="silver" />
+            <Checkbox label="Gold" value="gold" />
+          </FormField>
+
+          <FormField name="timeframe" label="Select your timeframe">
+            <Radio label="Six months" value="6m" />
+            <Radio label="One year" value="12m" />
+            <Radio label="Two years" value="24m" />
           </FormField>
 
           <FormField 
