@@ -1,37 +1,34 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import MultipleChoiceInput from '../MultipleChoiceInput/index';
+import Radio from '../Radio';
 
-const options = [
-  {
-    label: 'Bronze',
-    value: 'bronze',
-  },
-  {
-    label: 'Silver',
-    value: 'silver',
-  },
-  {
-    label: 'Gold',
-    value: 'gold',
-  },
-];
+// const options = [
+//   {
+//     label: 'Bronze',
+//     value: 'bronze',
+//   },
+//   {
+//     label: 'Silver',
+//     value: 'silver',
+//   },
+//   {
+//     label: 'Gold',
+//     value: 'gold',
+//   },
+// ];
 
 storiesOf('Forms/Multiple Choice/Radio', module)
-  .add('group', () => (
-    <>
-      {options.map(({ label, value }) => (
-        <div key={value}>
-          <MultipleChoiceInput
-            checked={value === 'bronze'}
-            name="metal"
-            type="radio"
-            label={label}
-            value={value}
-            onChange={action('onChange fired')}
-          />
-        </div>
-      ))}
-    </>
+  .add('un-checked', () => (
+    <Radio
+      label="Bronze"
+      value="bronze"
+    />
+  ))
+  .add('checked', () => (
+    <Radio
+      checked
+      label="Bronze"
+      value="bronze"
+    />
   ));
+

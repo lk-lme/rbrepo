@@ -2,40 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import FormField from './../FormField';
-import FField from './../Field';
 import TextInput from './../TextInput';
 import Radio from './../Radio';
 import Checkbox from './../Checkbox';
-
-const TextInputField: React.FunctionComponent<TIProps> = ({ id, type, label, hint, field, form }) => {
-  const { name } = field;
-  const { errors, touched } = form;
-
-  return (
-    <FField 
-      name={name}
-      id={id}
-      label={label}
-      hint={hint}
-      errors={touched[name] ? errors[name] : []}
-    >
-      <TextInput id={id} type={type} {...field} />
-    </FField>
-  );
-};
-
-interface TIProps {
-  name: string;
-  id?: string;
-  label: string;
-  hint?: string;
-  field: { [x: string]: string };
-  type?: 'text'|'email'|'password'|'tel';
-  form: {
-    errors: { [x: string]: string };
-    touched: { [x: string]: string };
-  };
-}
+import CheckboxSet from './../CheckboxSet';
+import RadioSet from './../RadioSet';
 
 storiesOf('Forms/Formik', module)
   .add('basic demo', () => (
@@ -66,19 +37,25 @@ storiesOf('Forms/Formik', module)
           </FormField>
 
           <FormField name="terms">
-            <Checkbox label="I agree to the terms & conditions" />
+            <CheckboxSet>
+              <Checkbox label="I agree to the terms & conditions" />
+            </CheckboxSet>
           </FormField>
 
           <FormField name="metal" label="Select your metals">
-            <Checkbox label="Bronze" value="bronze" />
-            <Checkbox label="Silver" value="silver" />
-            <Checkbox label="Gold" value="gold" />
+            <CheckboxSet>
+              <Checkbox label="Bronze" value="bronze" />
+              <Checkbox label="Silver" value="silver" />
+              <Checkbox label="Gold" value="gold" />
+            </CheckboxSet>
           </FormField>
 
           <FormField name="timeframe" label="Select your timeframe">
-            <Radio label="Six months" value="6m" />
-            <Radio label="One year" value="12m" />
-            <Radio label="Two years" value="24m" />
+            <RadioSet>
+              <Radio label="Six months" value="6m" />
+              <Radio label="One year" value="12m" />
+              <Radio label="Two years" value="24m" />
+            </RadioSet>
           </FormField>
 
           <FormField name="password" label="Password">
