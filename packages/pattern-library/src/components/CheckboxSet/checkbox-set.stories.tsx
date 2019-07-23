@@ -7,7 +7,7 @@ const ControlledCheckboxSet: React.FunctionComponent = () => {
   const [ value, setValue ] = useState([]);
 
   return (
-    <CheckboxSet value={value} setFieldValue={setValue}>
+    <CheckboxSet name="metal" value={value} setFieldValue={setValue}>
       <Checkbox label="Bronze" value="bronze" />
       <Checkbox label="Silver" value="silver" />
       <Checkbox label="Gold" value="gold" />

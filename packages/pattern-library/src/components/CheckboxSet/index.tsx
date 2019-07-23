@@ -1,37 +1,59 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { createContext } from 'react';
 
-const CheckboxSet: React.FunctionComponent<Props> = ({ name, value = '', setFieldValue, children }) => {
-  const isSet = React.Children.count(children) > 1; 
+// @ts-ignore
+export const CheckboxSetContext =  createContext();
 
+const CheckboxSet: React.FunctionComponent<Props> = ({ name, value = [], setFieldValue = () => {}, children }) => {
   return (
-    // @ts-ignore
-    React.Children.map(children, (child: React.ReactElement) => (
-      React.cloneElement(child, {
+    <CheckboxSetContext.Provider
+      value={{
         name,
-        ...(setFieldValue ? {
-          onChange(e: React.ChangeEvent) {
-            const target = e.target as HTMLInputElement;
-            const newVal = !isSet || typeof value === 'boolean'
-              ? target.checked
-              : (target.checked 
-                ? [...new Set([...value, child.props.value])]
-                : [...value].filter(val => val !== child.props.value)
-              );
-
-            setFieldValue(newVal);
-          },
-        } : {}),
-        checked: Array.isArray(value)
-          ? value.includes(child.props.value)
-          : Boolean(value),
-      })
-    ))
+        fieldValue: value,
+        setFieldValue(val: string, checked: boolean) {
+          setFieldValue(
+            checked
+              ? [...new Set([...value, val])]
+              : [...value].filter(x => x !== val),
+          );
+        },
+      }}
+      children={children}
+    />
   );
+
+  // return (
+  //   // @ts-ignore
+  //   React.Children.map(children, (child: React.ReactElement) => (
+  //     React.cloneElement(child, {
+  //       name,
+  //       ...(setFieldValue ? {
+  //         onChange(e: React.ChangeEvent) {
+  //           const target = e.target as HTMLInputElement;
+  //           const newVal = !isSet || typeof value === 'boolean'
+  //             ? target.checked
+  //             : (target.checked 
+  //               ? [...new Set([...value, child.props.value])]
+  //               : [...value].filter(val => val !== child.props.value)
+  //             );
+
+  //           setFieldValue(newVal);
+  //         },
+  //       } : {}),
+  //       checked: Array.isArray(value)
+  //         ? value.includes(child.props.value)
+  //         : Boolean(value),
+  //     })
+  //   ))
+  // );
+};
+
+CheckboxSet.defaultProps = {
+  value: [],
 };
 
 interface Props {
   name?: string;
-  value?: boolean|string[];
+  value?: string[];
   setFieldValue?(value: any): void;
 }
 
