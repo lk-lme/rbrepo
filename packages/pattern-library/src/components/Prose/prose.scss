@@ -1,0 +1,7 @@
+.prose {
+  --prose-top-spacing: 1rem;
+
+  > * + * {
+    margin-top: var(--prose-top-spacing);
+  }
+}
