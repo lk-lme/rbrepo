@@ -4,7 +4,7 @@ import styles from './heading.scss';
 // Defaults to an h1 when not used within a <Section />
 export const HeadingLevelContext = React.createContext(1);
 
-const Heading: React.FunctionComponent<Props> = ({ level, asLevel, ...props }) => {
+const Heading: React.FunctionComponent<Props & React.HTMLAttributes<Props>> = ({ level, asLevel, ...props }) => {
   // h6 is the highest valid heading level
   const headingLevel = level || Math.min(React.useContext(HeadingLevelContext), 6);
   const Elem = `h${headingLevel}`;
