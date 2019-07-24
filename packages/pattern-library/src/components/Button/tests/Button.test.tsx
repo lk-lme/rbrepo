@@ -7,7 +7,7 @@ describe('<Button />', () => {
     it('renders a link when present', () => {
       const mockUrl  = 'https://www.google.com/';
 
-      const { container } = render(<Button url={mockUrl} />);
+      const { container } = render(<Button url={mockUrl}>Link</Button>);
       const $elem = container.querySelector('a') as HTMLElement;
       const linkHref = $elem.getAttribute('href');
 
