@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Button from './../.';
 
 describe('<Button />', () => {
@@ -7,8 +7,9 @@ describe('<Button />', () => {
     it('renders a link when present', () => {
       const mockUrl  = 'https://www.google.com/';
 
-      const button = shallow(<Button url={mockUrl} />);
-      const linkHref = button.find('a').prop('href');
+      const { container } = render(<Button url={mockUrl} />);
+      const $elem = container.querySelector('a') as HTMLElement;
+      const linkHref = $elem.getAttribute('href');
 
       expect(linkHref).toBe(mockUrl);
     });
