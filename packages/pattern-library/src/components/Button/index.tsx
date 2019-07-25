@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import buttonStyles from './button.scss';
 
-const Button: React.FunctionComponent<Props> = ({
+const Button: React.FunctionComponent<Props & React.HTMLAttributes<Props>> = ({
   url,
   children,
   ...props
@@ -21,7 +21,8 @@ const Button: React.FunctionComponent<Props> = ({
 };
 
 interface Props {
-  onClick?(): void;
+  onClick?(e: Event): void;
+  onKeyDown?(e: KeyboardEvent): void;
   url?: string;
   children: ReactNode;
 }
