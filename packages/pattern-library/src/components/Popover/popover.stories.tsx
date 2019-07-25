@@ -1,18 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { storiesOf } from '@storybook/react';
 import Popover from '.';
 import Button from './../Button';
+import useOnOutsideClick from '../../hooks/useOnOutsideClick';
 
 const Dropdown = () => {
-  const btnElRef = useRef<HTMLButtonElement>();
+  const btnElRef = useRef(null);
+  const clickOutsideRef = useRef(null);
+  const [active, setActive] = useState(false);
+
+  useOnOutsideClick(clickOutsideRef, () => setActive(false));
 
   return (
     <div style={{ padding: '2rem', minHeight: '60rem', display: 'flex', alignItems: 'center' }}>
-      <Button ref={btnElRef} onClick={() => console.log(btnElRef)}>
+      <Button ref={btnElRef} onClick={() => setActive(!active)}>
         Some text
       </Button>
-      <Popover anchor={btnElRef}>
-        <div style={{ backgroundColor: 'whitesmoke', padding: '2rem', maxWidth: '40rem' }}>
+      <Popover anchor={btnElRef} isActive={active} >
+        <div ref={clickOutsideRef} style={{ backgroundColor: 'whitesmoke', padding: '2rem', maxWidth: '40rem' }}>
           <h4>Menu</h4>
           <ul>
             <li>Menu one</li>

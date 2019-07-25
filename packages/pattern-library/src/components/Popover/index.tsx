@@ -2,26 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Popper from 'popper.js';
 import styles from './popover.scss';
-import usePortal from './../../hooks/usePortal';
+import usePortal from '../../hooks/usePortal';
 
-const Popover: React.FunctionComponent<Props> = ({ anchor, children }) => {
-  const popperInst = useRef<Popper | null>(null);
-  const popperEl = useRef(null);
+const Popover: React.FunctionComponent<Props> = ({ anchor, isActive, children }) => {
   const target = usePortal('popover');
+  const popperInst = useRef<Popper|null>(null);
+  const popperElRef = useRef<HTMLDivElement>(null);
   const [popperPosition, setPopperPosition] = useState();
 
   useEffect(() => {
-    if (anchor && popperEl) {
-      // @ts-ignore
-      popperInst.current = new Popper(anchor.current, popperEl.current, {
-        onCreate(e: any) {
-          console.log('We have created', e);
-          //@ts-ignore
+    const { current: popperEl } = popperElRef;
+    const anchorEl =
+      anchor && (anchor instanceof Element ? anchor : anchor.current);
+
+    if (anchorEl && popperEl) {
+      popperInst.current = new Popper(anchorEl, popperEl, {
+        onCreate(e) {
           setPopperPosition(e.styles);
         },
-        onUpdate(e: any) {
-          console.log('We have updated', e);
-          //@ts-ignore
+        onUpdate(e) {
           setPopperPosition(e.styles);
         },
         modifiers: {
@@ -35,10 +34,12 @@ const Popover: React.FunctionComponent<Props> = ({ anchor, children }) => {
         popperInst.current.destroy();
       }
     };
-  }, [anchor]);
+  }, [anchor, isActive]);
+
+  if (!isActive) return null;
 
   const Elem = (
-    <div className={styles.popover} ref={popperEl} style={popperPosition}>
+    <div className={styles.popover} ref={popperElRef} style={popperPosition}>
       {children}
     </div>
   );
@@ -47,7 +48,10 @@ const Popover: React.FunctionComponent<Props> = ({ anchor, children }) => {
 };
 
 interface Props {
-  anchor?: HTMLElement | React.MutableRefObject<HTMLElement | undefined>;
+  /** The element to position the Popover in relation to. */
+  anchor?: HTMLElement | React.MutableRefObject<HTMLElement | null>;
+  /** If the popover should be displayed. */
+  isActive?: boolean;
 }
 
 export default Popover;
