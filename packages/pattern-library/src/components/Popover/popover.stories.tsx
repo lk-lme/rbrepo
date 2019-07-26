@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { storiesOf } from '@storybook/react';
+import keycode from 'keycode';
 import Popover from '.';
 import Button from './../Button';
 import useOnOutsideClick from '../../hooks/useOnOutsideClick';
@@ -25,6 +26,21 @@ function getFocusableElems(parent: HTMLElement): HTMLElement[]|null {
 //   return <div ref={ref}>{children}</div>;
 // };
 
+function getNextArrItem<T>(
+  direction: 'forward' | 'backward',
+  allElems: T[],
+  currentElem?: T | null,
+) {
+  const inc = direction === 'forward' ? 1 : -1;
+  const defaultElem =
+    direction === 'forward' ? allElems[0] : allElems[allElems.length - 1];
+
+  return currentElem
+    ? allElems[allElems.findIndex(elem => currentElem === elem) + inc] ||
+        defaultElem
+    : defaultElem;
+}
+
 const Dropdown = () => {
   const btnElRef = useRef<HTMLButtonElement>(null);
   const clickOutsideRef = useRef<HTMLDivElement>(null);
@@ -34,11 +50,11 @@ const Dropdown = () => {
   useOnOutsideClick(clickOutsideRef, () => setActive(false));
 
   const wrapperRef = useCallback((node) => {
-    if (!node) return;
+    activeElems.current = node ? getFocusableElems(node) : null;
 
-    activeElems.current = getFocusableElems(node);
+    if (!activeElems.current) return;
 
-    if (activeElems.current) activeElems.current[0].focus({ preventScroll: true });
+    activeElems.current[0].focus({ preventScroll: true });
   }, []);
 
   function handleClick(e: Event) {
@@ -47,27 +63,34 @@ const Dropdown = () => {
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
-    if (!activeElems.current) return;
-
     const { current: menuItems } = activeElems;
-    const firstItem = menuItems[0];
-    const lastItem = menuItems[menuItems.length - 1];
-    
-    console.log(e.keyCode);
 
-    if (e.keyCode === 40) {
-      e.preventDefault();
-      const next = menuItems[menuItems.findIndex(elem => document.activeElement === elem) + 1] || firstItem;
-      next.focus();
-    } else if (e.keyCode === 38) {
-      e.preventDefault();
-      const next = menuItems[menuItems.findIndex(elem => document.activeElement === elem) - 1] || lastItem;
-      next.focus();
-    } else if (e.keyCode === 27 || e.keyCode === 9) {
-      e.preventDefault();
-      setActive(false);
-      if (!btnElRef.current) return;
-      btnElRef.current.focus();
+    if (!menuItems) return;
+    
+    const key = keycode(e.keyCode);
+    
+    switch(key) {
+      case 'up':
+      case 'down':
+        {
+          e.preventDefault();
+          getNextArrItem(
+            key === 'up' ? 'backward' : 'forward',
+            menuItems,
+            (document.activeElement as HTMLElement),
+          ).focus();
+        }
+        break;
+      case 'esc':
+      case 'tab':
+        {
+          e.preventDefault();
+          setActive(false);
+          if (!btnElRef.current) return;
+          btnElRef.current.focus();
+        }
+      default:
+        break;
     }
   }
 
