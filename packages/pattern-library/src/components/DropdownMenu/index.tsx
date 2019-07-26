@@ -17,11 +17,8 @@ const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions }) => {
       <Button ref={btnElRef} onClick={handleClick}>
         {label}
       </Button>
-      <Popover anchor={btnElRef} isActive={active}>
-        <ActionMenu 
-          setActive={setActive}
-          actions={actions}
-        />
+      <Popover anchor={btnElRef} isActive={active} placement="bottom-start">
+        <ActionMenu setActive={setActive} actions={actions} />
       </Popover>
     </>
   );
