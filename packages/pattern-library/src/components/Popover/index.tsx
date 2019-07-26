@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
-import Popper from 'popper.js';
+import Popper, { PopperOptions } from 'popper.js';
 import styles from './popover.scss';
 import usePortal from '../../hooks/usePortal';
 
-const Popover: React.FunctionComponent<Props> = ({ anchor, isActive, children }) => {
+const Popover: React.FunctionComponent<Props> = ({ anchor, isActive, placement, children }) => {
   const target = usePortal('popover');
   const popperInst = useRef<Popper|null>(null);
   const popperElRef = useRef<HTMLDivElement>(null);
@@ -17,6 +17,7 @@ const Popover: React.FunctionComponent<Props> = ({ anchor, isActive, children })
 
     if (anchorEl && popperEl) {
       popperInst.current = new Popper(anchorEl, popperEl, {
+        placement,
         onCreate(e) {
           setPopperPosition(e.styles);
         },
@@ -47,6 +48,7 @@ const Popover: React.FunctionComponent<Props> = ({ anchor, isActive, children })
 
 Popover.defaultProps = {
   isActive: false,
+  placement: 'auto',
 };
 
 interface Props {
@@ -54,6 +56,7 @@ interface Props {
   anchor?: HTMLElement | React.MutableRefObject<HTMLElement | null>;
   /** If the popover should be displayed. */
   isActive?: boolean;
+  placement?: PopperOptions['placement'];
 }
 
 export default Popover;
