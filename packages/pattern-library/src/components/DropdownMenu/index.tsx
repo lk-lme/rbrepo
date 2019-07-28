@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import Button from './../Button';
 import Popover from './../Popover';
 import ActionMenu, { Action } from './../ActionMenu';
@@ -7,10 +7,10 @@ const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions }) => {
   const btnElRef = useRef<HTMLButtonElement>(null);
   const [active, setActive] = useState(false);
 
-  function handleClick(e: Event) {
+  const handleClick = useCallback((e: Event) => {
     e.preventDefault();
-    setActive(!active);
-  }
+    setActive(isActive => !isActive);
+  }, []);
 
   return (
     <>

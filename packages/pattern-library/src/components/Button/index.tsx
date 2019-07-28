@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { useMemo, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import buttonStyles from './button.scss';
 
