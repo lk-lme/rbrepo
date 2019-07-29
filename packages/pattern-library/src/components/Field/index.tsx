@@ -8,9 +8,8 @@ const FormField: React.FunctionComponent<Props> = ({
   hint,
   errors = [],
   children,
-  // isSet,
+  isSet,
 }) => {
-  const isSet = React.Children.count(children) > 1;
   const Wrapper = isSet ? 'fieldset' : 'div';
   const Label = isSet ? 'legend' : 'label';
   const errorArr = Array.isArray(errors) ? errors : [errors];
@@ -47,9 +46,9 @@ const FormField: React.FunctionComponent<Props> = ({
   );
 };
 
-// FormField.defaultProps = {
-//   isSet: false,
-// };
+FormField.defaultProps = {
+  isSet: false,
+};
 
 export interface Props {
   name: string;
@@ -58,7 +57,7 @@ export interface Props {
   id?: string;
   hint?: string|ReactElement;
   errors?: string|string[];
-  // isSet?: boolean;
+  isSet?: boolean;
 }
 
 export default FormField;

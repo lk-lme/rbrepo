@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { memo } from 'react';
+import withFormikField from './../hoc/withFormikField';
 
-const TextInput: React.FunctionComponent<Props> = ({
+export const TextInput: React.FunctionComponent<Props> = ({
   id,
   type = 'text',
   name,
   value,
   onChange,
   onBlur,
-}) => (
-  <input
+}) => {
+  console.log('TextInput rendered');
+  return <input
     id={id}
     type={type}
     name={name}
     value={value}
     onChange={onChange}
     onBlur={onBlur}
-   />
-);
+   />;
+};
 
 interface Props {
   /** The form field name that data will be stored under. */
@@ -31,4 +33,4 @@ interface Props {
   onBlur?(e: React.FocusEvent): void;
 }
 
-export default TextInput;
+export default withFormikField()(memo(TextInput));

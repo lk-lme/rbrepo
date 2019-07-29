@@ -1,8 +1,19 @@
-import React from 'react';
-import MultipleChoiceInput, { Props } from './../MultipleChoiceInput';
+import { compose, mapProps, renameProp, withProps } from 'recompose';
+import MultipleChoiceInput from './../MultipleChoiceInput';
+import withFormikField from './../hoc/withFormikField';
 
-const Radio: React.FunctionComponent<Omit<Props, 'type'>> = props => (
-  <MultipleChoiceInput type="radio" {...props} />
-);
+const Radio = withProps({
+  type: 'radio',
+})(MultipleChoiceInput);
 
-export default Radio;
+export default compose(
+  renameProp('value', 'inputValue'),
+  withFormikField(),
+  // @ts-ignore
+  mapProps(({ inputValue, value, ...props }) => ({
+    value: inputValue, 
+    checked: value === inputValue,
+    ...props,
+  })),
+// @ts-ignore
+)(Radio);

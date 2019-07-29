@@ -1,12 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import FormField from './../FormField';
 import TextInput from './../TextInput';
 import Radio from './../Radio';
 import Checkbox from './../Checkbox';
-import CheckboxSet from './../CheckboxSet';
-import RadioSet from './../RadioSet';
+import Button from './../Button';
 
 storiesOf('Forms/Formik', module)
   .add('basic demo', () => (
@@ -36,35 +35,29 @@ storiesOf('Forms/Formik', module)
             <TextInput type="email" />
           </FormField>
 
-          <FormField name="terms">
-            <CheckboxSet>
-              <Checkbox label="I agree to the terms & conditions" />
-            </CheckboxSet>
-          </FormField>
+          {/* <FormField name="terms">
+            <Checkbox label="I agree to the terms & conditions" />
+          </FormField> */}
 
           <FormField name="metal" label="Select your metals">
-            <CheckboxSet>
-              <Checkbox label="Bronze" value="bronze" />
-              <Checkbox label="Silver" value="silver" />
-              <Checkbox label="Gold" value="gold" />
-            </CheckboxSet>
+            <Checkbox label="Bronze" value="bronze" />
+            <Checkbox label="Silver" value="silver" />
+            <Checkbox label="Gold" value="gold" />
           </FormField>
 
-          <FormField name="timeframe" label="Select your timeframe">
-            <RadioSet>
-              <Radio label="Six months" value="6m" />
-              <Radio label="One year" value="12m" />
-              <Radio label="Two years" value="24m" />
-            </RadioSet>
+          {/* <FormField name="timeframe" label="Select your timeframe">
+            <Radio label="Six months" value="6m" />
+            <Radio label="One year" value="12m" />
+            <Radio label="Two years" value="24m" />
           </FormField>
 
           <FormField name="password" label="Password">
             <TextInput type="password" />
-          </FormField>
+          </FormField> */}
 
-          <button type="submit" disabled={isSubmitting}>
+          <Button>
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>

@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { memo, ChangeEventHandler } from 'react';
 import styles from './multiple-choice-input.scss';
 
 /**
@@ -11,7 +11,10 @@ const MultipleChoiceInput: React.FunctionComponent<Props> = ({
   name,
   checked = false,
   onChange,
-}) => (
+}) => {
+  console.log('MCI Rendered');
+
+  return (
   <label className={styles.wrapper}>
     <input
       type={type}
@@ -23,7 +26,8 @@ const MultipleChoiceInput: React.FunctionComponent<Props> = ({
     <span className={styles.control} />
     <span className={styles.label}>{label}</span>
   </label>
-);
+ );
+};
 
 export interface Props {
   /** The display label. */
@@ -41,4 +45,3 @@ export interface Props {
 }
 
 export default MultipleChoiceInput;
-

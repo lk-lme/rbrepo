@@ -1,33 +1,39 @@
-import React, { useContext } from 'react';
-import MultipleChoiceInput, { Props } from './../MultipleChoiceInput';
-import { CheckboxSetContext } from './../CheckboxSet';
+import { compose, renameProp, mapProps, withProps } from 'recompose';
+import withFormikField from './../hoc/withFormikField';
+import MultipleChoiceInput from './../MultipleChoiceInput';
 
-const Checkbox: React.FunctionComponent<Omit<Props, 'type'>> = ({ value, ...props }) => {
-  const { name, fieldValue, setFieldValue } = useContext(CheckboxSetContext);
+const Checkbox = withProps({
+  type: 'checkbox',
+})(MultipleChoiceInput);
 
-  console.log('name is', name);
+export default compose(
+  renameProp('value', 'inputValue'),
+  withFormikField(),
+  // @ts-ignore
+  mapProps(({ name, setFieldValue, inputValue, value, ...props }) => ({
+    ...props,
+    name,
+    onChange(e: React.ChangeEvent) {
+      const target = e.target as HTMLInputElement;
 
-  const onChange = (e: React.ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    // const newValue = target.checked 
-    //   ? [...new Set([...fieldValue, value])]
-    //   : [...fieldValue].filter(val => val !== value);
-    // setFieldValue(newValue);
-    setFieldValue(value, target.checked);
-  };
-
-  console.log(fieldValue);
-
-  return (
-    <MultipleChoiceInput
-      type="checkbox"
-      checked={fieldValue.includes(value)}
-      onChange={onChange}
-      name={name}
-      value={value}
-      {...props}
-    />
-  );
-};
-
-export default Checkbox;
+      if (inputValue) {
+        setFieldValue(
+          name,
+          target.checked
+            ? [...new Set([...(value || []), inputValue])]
+            : [...value].filter(x => x !== inputValue),
+        );
+      } else {
+        setFieldValue(name, target.checked);
+      }
+    },
+    value: inputValue,
+    checked:
+      value === 'undefined'
+        ? false
+        : Array.isArray(value)
+        ? value.includes(inputValue)
+        : Boolean(value),
+  })),
+  // @ts-ignore
+)(Checkbox);
