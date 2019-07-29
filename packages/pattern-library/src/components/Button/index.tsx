@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, ReactNode } from 'react';
+import React, { memo, forwardRef, ReactNode } from 'react';
 import cx from 'classnames';
 import buttonStyles from './button.scss';
 
@@ -31,4 +31,4 @@ interface Props {
   children: ReactNode;
 }
 
-export default forwardRef<HTMLButtonElement|undefined, Props>(Button);
+export default memo(forwardRef<HTMLButtonElement|undefined, Props>(Button));
