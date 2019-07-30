@@ -1,5 +1,5 @@
 import React, { useRef, createContext } from 'react';
-import { Formik, FormikConfig, Field, ErrorMessage, FormikProps } from 'formik';
+import { Formik, FormikConfig } from 'formik';
 
 export const FormContext = createContext({
   currentFields: {},
@@ -30,7 +30,6 @@ const Form: React.FunctionComponent<FormikConfig<{}>> = ({
           ? {
               validate(values) {
                 const validationResults = validate(values);
-
                 // @ts-ignore
                 return (
                   // @ts-ignore
@@ -58,22 +57,8 @@ const Form: React.FunctionComponent<FormikConfig<{}>> = ({
       >
         {formikProps => {
           // @ts-ignore
-          // console.log(formikProps);
-
-          console.log('form rendered');
-
-          // @ts-ignore
-          const handleSubmit = e => {
-            e.preventDefault();
-            console.log(e);
-            formikProps.handleSubmit(e);
-            // console.log(Object.keys(values).filter(val => currentFields[val]));
-          };
-
-          // @ts-ignore
           return children({
             ...formikProps,
-            // handleSubmit,
             currentFields: currentFields.current,
           });
         }}
