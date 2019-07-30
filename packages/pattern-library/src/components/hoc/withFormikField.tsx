@@ -1,21 +1,10 @@
-import React, { useLayoutEffect, useEffect } from 'react';
+import React from 'react';
 import { useFormFieldContext } from './../FormField';
 
 const withFormikField = () =>
   function<T>(Component: React.ComponentType<T>) {
     const WrappedComponent: React.FunctionComponent<T> = (props: any) => {
-      const { id, field, setFieldValue, setFieldCount } = useFormFieldContext();
-
-      useLayoutEffect(() => {
-        //@ts-ignore
-        setFieldCount(count => count + 1);
-
-        return () => {
-          // @ts-ignore
-          setFieldCount(count => count - 1);
-        };
-        // @ts-ignore
-      }, [setFieldCount,  field.name]);
+      const { id, field, setFieldValue } = useFormFieldContext();
 
       return (
         <Component
@@ -26,6 +15,9 @@ const withFormikField = () =>
         />
       );
     };
+
+    // @ts-ignore
+    WrappedComponent.isFormInput = true;
 
     return WrappedComponent;
   };

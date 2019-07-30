@@ -1,4 +1,4 @@
-import { compose, mapProps, renameProp, withProps } from 'recompose';
+import { compose, mapProps, renameProp, withProps, setStatic } from 'recompose';
 import MultipleChoiceInput from './../MultipleChoiceInput';
 import withFormikField from './../hoc/withFormikField';
 
@@ -7,6 +7,7 @@ const Radio = withProps({
 })(MultipleChoiceInput);
 
 export default compose(
+  setStatic('isFormInput', true),
   renameProp('value', 'inputValue'),
   withFormikField(),
   // @ts-ignore

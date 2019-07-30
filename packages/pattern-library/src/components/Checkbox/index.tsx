@@ -1,4 +1,4 @@
-import { compose, renameProp, mapProps, withProps } from 'recompose';
+import { compose, renameProp, mapProps, withProps, setStatic } from 'recompose';
 import withFormikField from './../hoc/withFormikField';
 import MultipleChoiceInput from './../MultipleChoiceInput';
 
@@ -7,6 +7,7 @@ const Checkbox = withProps({
 })(MultipleChoiceInput);
 
 export default compose(
+  setStatic('isFormInput', true),
   renameProp('value', 'inputValue'),
   withFormikField(),
   // @ts-ignore

@@ -1,6 +1,7 @@
-import React, { createContext, useState, useRef, useCallback, useContext, useEffect } from 'react';
+import React, { createContext, useContext } from 'react';
 import { Field as FormikField, FieldProps } from 'formik';
 import Field, { Props } from './../Field';
+import filterChildren from './../../utils/filterChildren';
 
 const FormFieldContext = createContext<FormFieldContextType>({});
 
@@ -13,7 +14,11 @@ const FormField: React.FunctionComponent<Props> = ({
   hint,
   children,
 }) => {
-  const [fieldCount, setFieldCount] = useState(0);
+  const fieldCount = filterChildren(children, (child: React.ReactChild) => {
+    // @todo: Figure out how to appease TSC
+    // @ts-ignore
+    return child.type ? child.type.isFormInput : false;
+  }).length;
 
   return (
     <FormikField name={name}>
@@ -36,7 +41,6 @@ const FormField: React.FunctionComponent<Props> = ({
                 field,
                 setFieldValue,
                 errors: fieldErrors,
-                setFieldCount,
               }}
             >
               {children}
@@ -51,7 +55,6 @@ const FormField: React.FunctionComponent<Props> = ({
 type FormFieldContextType = Partial<Pick<Props, 'errors'|'id'|'name'|'label'>> & {
   field?: FieldProps['field'];
   setFieldValue?: FieldProps['form']['setFieldValue'];
-  setFieldCount?: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default FormField;

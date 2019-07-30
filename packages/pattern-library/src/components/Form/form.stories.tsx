@@ -35,17 +35,19 @@ storiesOf('Forms/Formik', module)
             <TextInput type="email" />
           </FormField>
 
-          {/* <FormField name="terms">
+          <FormField name="terms">
             <Checkbox label="I agree to the terms & conditions" />
-          </FormField> */}
+          </FormField>
 
           <FormField name="metal" label="Select your metals">
-            <Checkbox label="Bronze" value="bronze" />
+            <span>
+              <Checkbox label="Bronze" value="bronze" />
+            </span>
             <Checkbox label="Silver" value="silver" />
             <Checkbox label="Gold" value="gold" />
           </FormField>
 
-          {/* <FormField name="timeframe" label="Select your timeframe">
+          <FormField name="timeframe" label="Select your timeframe">
             <Radio label="Six months" value="6m" />
             <Radio label="One year" value="12m" />
             <Radio label="Two years" value="24m" />
@@ -53,7 +55,7 @@ storiesOf('Forms/Formik', module)
 
           <FormField name="password" label="Password">
             <TextInput type="password" />
-          </FormField> */}
+          </FormField>
 
           <Button>
             Submit
