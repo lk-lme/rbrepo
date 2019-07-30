@@ -23,7 +23,7 @@ const FormField: React.FunctionComponent<Props> = ({
   return (
     <FormikField name={name}>
       {({ field, form: { setFieldValue, errors, touched } }: FieldProps) => {
-        const fieldErrors = touched[name] ? String(errors[name]) : [];
+        const fieldErrors = touched[name] ? (errors[name] as string) : [];
 
         return (
           <Field
