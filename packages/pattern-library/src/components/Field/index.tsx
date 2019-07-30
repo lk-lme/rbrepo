@@ -6,7 +6,7 @@ const FormField: React.FunctionComponent<Props> = ({
   id = name,
   label,
   hint,
-  errors = [],
+  errors,
   children,
   isSet,
 }) => {
@@ -48,6 +48,7 @@ const FormField: React.FunctionComponent<Props> = ({
 
 FormField.defaultProps = {
   isSet: false,
+  errors: [],
 };
 
 export interface Props {

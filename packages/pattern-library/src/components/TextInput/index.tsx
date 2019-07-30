@@ -9,7 +9,6 @@ export const TextInput: React.FunctionComponent<Props> = ({
   onChange,
   onBlur,
 }) => {
-  console.log('TextInput rendered');
   return <input
     id={id}
     type={type}
@@ -18,6 +17,10 @@ export const TextInput: React.FunctionComponent<Props> = ({
     onChange={onChange}
     onBlur={onBlur}
    />;
+};
+
+TextInput.defaultProps = {
+  value: '',
 };
 
 interface Props {
