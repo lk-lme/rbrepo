@@ -1,36 +1,62 @@
 import React from 'react';
+import faker from 'faker';
+import Case from 'case';
 import { storiesOf } from '@storybook/react';
 import StepByStep from '.';
 
-storiesOf('StepByStep', module)
-  .add('with text', () => (
+const steps = [
+  {
+    id: String(faker.random.uuid()),
+    title: Case.capital(faker.lorem.words(3)),
+    description: faker.lorem.paragraph(),
+  },
+  {
+    id: String(faker.random.uuid()),
+    title: Case.capital(faker.lorem.words(2)),
+    description: faker.lorem.paragraph(),
+  },
+  {
+    id: String(faker.random.uuid()),
+    title: Case.capital(faker.lorem.words(3)),
+    description: (
+      <ul>
+        <li>
+          {faker.lorem.paragraph()}
+        </li>
+        <li>
+          {faker.lorem.paragraph()}
+        </li>
+        <li>
+          {faker.lorem.paragraph()}
+        </li>
+      </ul>
+    ),
+  },
+];
+
+storiesOf('Step by Step', module)
+  .add('Single open step', () => (
+    <div style={{ padding: '2rem' }}>
+      <StepByStep
+        steps={steps}
+      />
+    </div>
+  ))
+  .add('Multiple open steps', () => (
     <div style={{ padding: '2rem' }}>
       <StepByStep
         allowMultiple
-        defaultOpen={['stepOne']}
-        steps={[
-          {
-            id: 'stepOne',
-            title: 'Step one',
-            description: (
-              <ul>
-                <li>Test</li>
-                <li>Test</li>
-                <li>Test</li>
-              </ul>
-            ),
-          },
-          {
-            id: 'stepTwo',
-            title: 'Step two',
-            description: 'This is the description for step two.',
-          },
-          {
-            id: 'stepThree',
-            title: 'Approval',
-            description: 'This is the description for step three.',
-          },
-        ]}
+        steps={steps}
+      />
+    </div>
+  ))
+  .add('Steps open by default', () => (
+    <div style={{ padding: '2rem' }}>
+      <StepByStep
+        allowMultiple
+        defaultOpen={[steps[0].id, steps[steps.length - 1].id]}
+        steps={steps}
       />
     </div>
   ));
+
