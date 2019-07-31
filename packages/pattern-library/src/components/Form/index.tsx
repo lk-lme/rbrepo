@@ -1,5 +1,6 @@
 import React, { useRef, createContext } from 'react';
 import { Formik, FormikConfig } from 'formik';
+import Alert from './../Alert';
 
 export const FormContext = createContext({
   currentFields: {},
@@ -56,6 +57,36 @@ const Form: React.FunctionComponent<FormikConfig<{}>> = ({
         }}
       >
         {formikProps => {
+          const errors = Object.keys(formikProps.errors)
+            // @ts-ignore
+            .map(x => ([x, formikProps.errors[x]]));
+
+          return (
+            <div>
+              {errors.length > 0 && formikProps.submitCount > 0 && (
+                <Alert title="An issue with your submission" type="warning">
+                  <ul>
+                    {errors.map(([key, error]) => {
+                      return (
+                        <li>
+                          <a href={`#${key}`}>
+                            {error}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Alert>
+              )}
+              {
+                // @ts-ignore
+                children({
+                  ...formikProps,
+                  currentFields: currentFields.current,
+                })
+              }
+            </div>
+          );
           // @ts-ignore
           return children({
             ...formikProps,

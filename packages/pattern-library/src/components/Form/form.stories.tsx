@@ -9,19 +9,25 @@ import Button from './../Button';
 
 storiesOf('Forms/Form', module).add('basic demo', () => (
   <Form
-    initialValues={{ email: '', password: '', ['bronze-details']: '' }}
+    initialValues={{
+      email: '',
+      password: '',
+      metal: [],
+      timeframe: undefined,
+      ['bronze-details']: ''
+    }}
     validate={(values: {[x: string]: any}) => {
       let errors: { [x: string]: any } = {};
 
       if (!values.email) {
-        errors.email = 'Required';
+        errors.email = 'Email address is required';
       } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
       ) {
         errors.email = 'Invalid email address';
       }
 
-      if (!values['bronze-details']) {
+      if (!values['bronze-details'] || [values['bronze-details'] === '']) {
         errors['bronze-details'] = 'Bronze details are required';
       }
 
@@ -29,12 +35,6 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
     }}
     onSubmit={(values, x) => {
       console.log(values);
-      // console.log(Object.keys(values).filter(val => currentFields[val]));
-
-      // setTimeout(() => {
-      //   alert(JSON.stringify(values, null, 2));
-      //   setSubmitting(false);
-      // }, 400);
     }}
   >
     {// @ts-ignore
@@ -72,12 +72,12 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
               </FormField> */}
 
         {
-        // @ts-ignore
-        values.metal && values.metal.includes('bronze') && (
-          <FormField name="bronze-details" label="Bronze details">
-            <TextInput type="text" />
-          </FormField>
-        )
+          // @ts-ignore
+          values.metal && values.metal.includes('bronze') && (
+            <FormField name="bronze-details" label="Bronze details">
+              <TextInput type="text" />
+            </FormField>
+          )
         }
 
         <FormField name="timeframe" label="Select your timeframe">
