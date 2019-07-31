@@ -1,16 +1,19 @@
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { TypedCssModulesPlugin } = require('typed-css-modules-webpack-plugin');
+
+const smp = new SpeedMeasurePlugin();
 
 module.exports = ({ config }) => {
   const rules = config.module.rules
     .filter(({ test }) => !test.toString().includes('svg'))
     .concat([
       {
-        test: /\.(ts|tsx)$/,
+        test: /(?!test)\.(ts|tsx)$/,
         use: [
           {
-            loader: require.resolve('awesome-typescript-loader'),
+            loader: require.resolve('ts-loader'),
             options: {
-              configFileName: './.storybook/tsconfig.json',
+              transpileOnly: true,
             },
           },
         ],
@@ -50,11 +53,11 @@ module.exports = ({ config }) => {
 
 	config.resolve.extensions.push('.ts', '.tsx');
 
-  return {
+  return smp.wrap({
 		...config,
 		module: {
 			...config.module,
 			rules,
 		},
-	};
+	});
 };
