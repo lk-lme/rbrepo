@@ -10,8 +10,8 @@ import Button from './../Button';
 storiesOf('Forms/Form', module).add('basic demo', () => (
   <Form
     initialValues={{
-      email: '',
-      password: '',
+      email: undefined,
+      password: undefined,
       metal: [],
       timeframe: undefined,
       ['bronze-details']: ''
@@ -27,7 +27,8 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
         errors.email = 'Invalid email address';
       }
 
-      if (!values['bronze-details'] || [values['bronze-details'] === '']) {
+      if (!values['bronze-details'] || values['bronze-details'] === '') {
+        console.log(!values['bronze-details'] || [values['bronze-details'] === ''])
         errors['bronze-details'] = 'Bronze details are required';
       }
 
@@ -37,14 +38,7 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
       console.log(values);
     }}
   >
-    {// @ts-ignore
-    ({
-      handleSubmit,
-      isSubmitting,
-      errors,
-      touched,
-      values,
-    }) => (
+    {({ handleSubmit, values }) => (
       <form onSubmit={handleSubmit}>
         <FormField name="email" label="Email address">
           <TextInput type="email" />
@@ -59,17 +53,6 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
           <Checkbox label="Silver" value="silver" />
           <Checkbox label="Gold" value="gold" />
         </FormField>
-
-        {/* <FormField 
-                name="bronze-details"
-                label="Bronze details"
-                condition={(values: object) => {
-                  // @ts-ignore
-                  return values.metal && values.metal.includes('bronze');
-                }}
-              >
-                <TextInput type="text" />
-              </FormField> */}
 
         {
           // @ts-ignore
