@@ -27,6 +27,13 @@ interface Props {
 
 export default compose(
   connect,
+  branch(
+    R.anyPass([
+      R.pathSatisfies(R.equals(0), ['formik', 'submitCount']),
+      R.pathSatisfies(R.isEmpty, ['formik', 'errors']),
+    ]),
+    renderNothing,
+  ),
   mapProps(R.pipe(
     R.path(['formik', 'errors']),
     R.applySpec({
@@ -39,10 +46,6 @@ export default compose(
       ),
     })
   )),
-  branch(
-    R.propSatisfies(R.isEmpty, 'errors'),
-    renderNothing,
-  ),
   // @ts-ignore
 )(FormErrors);
 
