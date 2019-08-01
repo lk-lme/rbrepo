@@ -8,6 +8,7 @@ export const TextInput: React.FunctionComponent<Props> = ({
   value,
   onChange,
   onBlur,
+  testId,
 }) => {
   return <input
     id={id}
@@ -16,6 +17,7 @@ export const TextInput: React.FunctionComponent<Props> = ({
     value={value}
     onChange={onChange}
     onBlur={onBlur}
+    data-testid={testId}
    />;
 };
 
@@ -31,6 +33,7 @@ interface Props {
   /** The controlled string value */
   value?: string;
   id?: string;
+  testId?: string;
   /** The callback function run when the input is checked/un-checked. */
   onChange?(e: React.ChangeEvent): void;
   onBlur?(e: React.FocusEvent): void;
