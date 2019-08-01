@@ -1,7 +1,4 @@
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { TypedCssModulesPlugin } = require('typed-css-modules-webpack-plugin');
-
-const smp = new SpeedMeasurePlugin();
 
 module.exports = ({ config }) => {
   const rules = config.module.rules
@@ -53,11 +50,11 @@ module.exports = ({ config }) => {
 
 	config.resolve.extensions.push('.ts', '.tsx');
 
-  return smp.wrap({
+  return {
 		...config,
 		module: {
 			...config.module,
 			rules,
 		},
-	});
+	};
 };
