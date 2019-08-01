@@ -6,6 +6,7 @@ import TextInput from './../TextInput';
 import Radio from './../Radio';
 import Checkbox from './../Checkbox';
 import Button from './../Button';
+import { SingleDatePicker } from './../DatePicker';
 
 storiesOf('Forms/Form', module).add('basic demo', () => (
   <Form
@@ -46,6 +47,10 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
 
         <FormField name="terms">
           <Checkbox label="I agree to the terms & conditions" />
+        </FormField>
+
+        <FormField name="contract-start" label="Contract start date">
+          <SingleDatePicker />
         </FormField>
 
         <FormField name="metal" label="Select your metals">
