@@ -1,0 +1,21 @@
+.nav {
+  border-bottom: 1px solid black;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--text-muted-color);
+  display: block;
+  padding: 1rem;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+}
+
+.nav__link--is-active {
+  color: var(--text-color);
+  border-bottom-color: var(--t-brand-primary);
+}
