@@ -1,5 +1,5 @@
 import { compose, renameProp, mapProps, withProps, setStatic } from 'recompose';
-import withFormikField from './../hoc/withFormikField';
+import withFormikField from '../../hoc/withFormikField';
 import MultipleChoiceInput from './../MultipleChoiceInput';
 
 const Checkbox = withProps({

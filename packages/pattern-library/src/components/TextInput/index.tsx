@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import withFormikField from './../hoc/withFormikField';
+import withFormikField from '../../hoc/withFormikField';
 
 export const TextInput: React.FunctionComponent<Props> = ({
   id,
