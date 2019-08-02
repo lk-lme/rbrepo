@@ -1,9 +1,21 @@
+$rfs-base-font-size: 1rem;
+@import '~rfs/scss';
+@import './../tokens/typography';
+
 body {
+  @include font-size($fs-base);
   --text-color: black;
   --text-muted-color: grey;
   --link-color: blue;
   color: var(--text-color);
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+}
+
+// @todo: Is this ok, or does it have drastic side-effects
+*,
+*:before,
+*:after {
+  color: var(--text-color);
 }
 
 a {

@@ -10867,6 +10867,11 @@ retry@^0.10.0:
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
   integrity sha1-52OI0heZLCUnUCQdPTlW/tmNj/Q=
 
+rfs@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/rfs/-/rfs-8.0.4.tgz#967ff515c02e122cbc04a7328911722414a98846"
+  integrity sha512-cYJoIQLO2CZDGzncuJWdFu2vpC7iXQMRl6IUE7H5UzP5yNiNuxwR+Nkj77oiRKInyN1zdZ4mG81h4LN58w7PAg==
+
 rimraf@2, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"

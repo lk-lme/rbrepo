@@ -49,6 +49,7 @@
     "react": "^16.8.6",
     "react-children-utilities": "^1.2.2",
     "recompose": "^0.30.0",
+    "rfs": "^8.0.4",
     "sass-loader": "^7.1.0",
     "storybook-readme": "^5.0.5",
     "style-loader": "^0.23.1",
