@@ -1,0 +1,20 @@
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.page-header__title {
+  display: inline-block;
+}
+
+.page-header__main {
+  margin-right: auto;
+}
+
+.page-header__actions,
+.page-header__badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
