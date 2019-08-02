@@ -1,0 +1,25 @@
+.steps {}
+
+.steps__section {
+  list-style: none;
+  padding: 0;
+}
+
+.steps__section .steps__section {
+  padding-left: 2rem;
+  color: grey;
+}
+
+.steps__step {
+
+}
+
+.steps__step-label {
+  display: block;
+  padding: 0.2em 0.5em;
+}
+
+.steps__step--is-active > .steps__step-label {
+  color: var(--t-brand-primary);
+  background-color: lightblue;
+}
