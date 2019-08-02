@@ -1,0 +1,26 @@
+.badge {
+  --text-color: #fff;
+  --badge-background-color: grey;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  background-color: var(--badge-background-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 999px;
+}
+
+.badge--primary {
+  --badge-background-color: var(--t-brand-primary);
+}
+
+.badge--warning {
+  --badge-background-color: var(--t-warning);
+}
+
+.badge--success {
+  --badge-background-color: var(--t-success);
+}
+
+.badge--danger {
+  --badge-background-color: var(--t-danger);
+}
