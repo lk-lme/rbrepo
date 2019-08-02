@@ -3,6 +3,26 @@ import { storiesOf } from '@storybook/react';
 import Steps from '.';
 
 storiesOf('Steps', module)
+  .add('flat', () => (
+    <div style={{ margin: '2rem' }}>
+      <Steps
+        activeID="contractdeets"
+        steps={[
+          {
+            id: 'starthere',
+            label: 'Start here',
+            link: '#',
+            status: 'success',
+          },
+          {
+            id: 'contractdeets',
+            label: 'Contract details',
+            link: '#',
+          },
+        ]}
+      />
+    </div>
+  ))
   .add('default', () => (
     <div style={{ margin: '2rem' }}>
       <Steps

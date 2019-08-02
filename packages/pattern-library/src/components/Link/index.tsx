@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 
 const Link: React.FunctionComponent<Props> = ({ children, activeClassName, className, ...props }) => {
   return (
@@ -10,7 +9,7 @@ const Link: React.FunctionComponent<Props> = ({ children, activeClassName, class
 };
 
 interface Props {
-  className: string;
+  className?: string;
 }
 
 export default Link;
