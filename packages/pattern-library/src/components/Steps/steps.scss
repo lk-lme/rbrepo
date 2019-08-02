@@ -29,13 +29,13 @@
   height: 70%;
 }
 
-.steps__step-label {
+.steps__step-title {
   display: flex;
   align-items: center;
   padding: 0.5em 0.8em;
 }
 
-.steps__step--is-active > .steps__step-label {
+.steps__step--is-active > .steps__step-title {
   font-weight: 700;
   color: var(--t-brand-primary);
   background-color: lightblue;

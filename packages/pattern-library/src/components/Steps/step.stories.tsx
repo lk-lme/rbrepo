@@ -10,13 +10,13 @@ storiesOf('Steps', module)
         steps={[
           {
             id: 'starthere',
-            label: 'Start here',
+            title: 'Start here',
             link: '#',
             status: 'success',
           },
           {
             id: 'contractdeets',
-            label: 'Contract details',
+            title: 'Contract details',
             link: '#',
           },
         ]}
@@ -30,40 +30,40 @@ storiesOf('Steps', module)
         steps={[
           {
             id: 'starthere',
-            label: 'Start here',
+            title: 'Start here',
             link: '#',
             steps: [
               {
                 id: 'secone',
-                label: 'Section one',
+                title: 'Section one',
                 link: '#',
                 status: 'success',
               },
               {
                 id: 'sectwo',
-                label: 'Section two',
+                title: 'Section two',
                 link: '#',
               },
               {
                 id: 'secthree',
-                label: 'Section three',
+                title: 'Section three',
                 link: '#',
               },
               {
                 id: 'secfour_start',
-                label: 'Section four',
+                title: 'Section four',
                 link: '#',
               },
             ],
           },
           {
             id: 'contractdeets',
-            label: 'Contract details',
+            title: 'Contract details',
             link: '#',
             steps: [
               {
                 id: 'sect one cont',
-                label: 'Section one',
+                title: 'Section one',
                 link: '#',
               },
             ],

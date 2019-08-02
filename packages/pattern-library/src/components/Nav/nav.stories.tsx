@@ -5,7 +5,7 @@ import Nav from '.';
 storiesOf('Nav', module)
   .add('basic', () => (
     <Nav
-      currentID="navtwo"
+      activeID="navtwo"
       links={[
         {
           id: 'contracts',

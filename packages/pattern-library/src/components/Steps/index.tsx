@@ -28,13 +28,13 @@ function renderSteps(sections: StepType[], activeID?: string) {
 
   return (
     <ol className={styles['steps__section']}>
-      {sections.map(({ id, steps, label, status }) => (
+      {sections.map(({ id, steps, title, status }) => (
         <li
           className={cx(styles['steps__step'], {
             [styles['steps__step--is-active']]: activeID === id || (steps ? isParentOfActive(steps, activeID) : null),
           })}
         >
-          <span className={styles['steps__step-label']}>
+          <span className={styles['steps__step-title']}>
             <span className={styles['steps__step-status']}>
               {(() => {
                 // @todo Refactor
@@ -43,7 +43,7 @@ function renderSteps(sections: StepType[], activeID?: string) {
                 return <StatusIcon className={styles['steps__step-icon']} />;
               })()}
             </span>
-            {label}
+            {title}
           </span>
           {steps ? renderSteps(steps, activeID) : null}
         </li>
@@ -54,7 +54,7 @@ function renderSteps(sections: StepType[], activeID?: string) {
 
 type StepType = {
   id: string;
-  label: string;
+  title: string;
   link: any;
   status?: 'success'|'neutral'|'warning';
   steps?: StepType[],

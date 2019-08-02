@@ -3,7 +3,7 @@ import cx from 'classnames';
 import Link from './../Link';
 import styles from './nav.scss';
 
-const Nav: React.FunctionComponent<Props> = ({ links, currentID }) => {
+const Nav: React.FunctionComponent<Props> = ({ links, activeID }) => {
   return (
     <nav className={styles['nav']}>
       <ul className={styles['nav__list']}>
@@ -11,7 +11,7 @@ const Nav: React.FunctionComponent<Props> = ({ links, currentID }) => {
           <li>
             <Link
               className={cx(styles['nav__link'], {
-                [styles['nav__link--is-active']]: id === currentID,
+                [styles['nav__link--is-active']]: id === activeID,
               })}
             >
               {title}
@@ -29,7 +29,7 @@ interface Props {
     url?: string;
     title?: string;
   }[];
-  currentID?: string;
+  activeID?: string;
 }
 
 export default Nav;
