@@ -10,13 +10,7 @@ body {
   color: var(--text-color);
   font-family: Arial, sans-serif;
   line-height: $base-line-height;
-}
-
-// @todo: Is this ok, or does it have drastic side-effects
-*,
-*:before,
-*:after {
-  color: var(--text-color);
+  letter-spacing: 0.031em;
 }
 
 a {
