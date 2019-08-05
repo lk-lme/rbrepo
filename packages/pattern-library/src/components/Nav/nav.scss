@@ -1,6 +1,4 @@
-.nav {
-  border-bottom: 1px solid black;
-}
+.nav {}
 
 .nav__list {
   display: flex;
@@ -17,5 +15,5 @@
 
 .nav__link--is-active {
   color: var(--text-color);
-  border-bottom-color: var(--t-brand-primary);
+  border-bottom-color: var(--t-brand-accent);
 }

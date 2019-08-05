@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import styles from './steps.scss';
+import Link from './../Link';
 import CheckIcon from './../../svg/check-circle.svg';
 
 const iconMap = {
@@ -34,7 +35,8 @@ function renderSteps(sections: StepType[], activeID?: string) {
             [styles['steps__step--is-active']]: activeID === id || (steps ? isParentOfActive(steps, activeID) : null),
           })}
         >
-          <span className={styles['steps__step-title']}>
+          {/* @todo: add link href etc */}
+          <Link className={styles['steps__step-title']}>
             <span className={styles['steps__step-status']}>
               {(() => {
                 // @todo Refactor
@@ -44,7 +46,7 @@ function renderSteps(sections: StepType[], activeID?: string) {
               })()}
             </span>
             {title}
-          </span>
+          </Link>
           {steps ? renderSteps(steps, activeID) : null}
         </li>
       ))}

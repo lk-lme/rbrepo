@@ -4,19 +4,44 @@ import Steps from '.';
 
 storiesOf('Steps', module)
   .add('flat', () => (
-    <div style={{ margin: '2rem' }}>
+    <div style={{ margin: '2rem', width: '20em' }}>
       <Steps
         activeID="contractdeets"
         steps={[
           {
             id: 'starthere',
-            title: 'Start here',
+            title: 'Start here Start here Start here Start here Start here',
             link: '#',
             status: 'success',
           },
           {
             id: 'contractdeets',
-            title: 'Contract details',
+            title: 'Contract',
+            link: '#',
+          },
+          {
+            id: 'calendar',
+            title: 'Calendar',
+            link: '#',
+          },
+          {
+            id: 'tick',
+            title: 'Tick size',
+            link: '#',
+          },
+          {
+            id: 'price',
+            title: 'Price',
+            link: '#',
+          },
+          {
+            id: 'ringtrader',
+            title: 'Ring trader',
+            link: '#',
+          },
+          {
+            id: 'approval',
+            title: 'Approval',
             link: '#',
           },
         ]}

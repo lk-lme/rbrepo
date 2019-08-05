@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 import Form from './../Form';
 import TextInput from './../TextInput';
 import Button from './../Button';
