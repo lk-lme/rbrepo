@@ -12,7 +12,9 @@ const FormField: React.FunctionComponent<Props> = ({
   name,
   id = name,
   label,
+  hideLabel,
   hint,
+  className,
   children,
 }) => {
   const { setCurrent } = useContext(FormContext);
@@ -40,9 +42,11 @@ const FormField: React.FunctionComponent<Props> = ({
           <Field
             name={name}
             label={label}
+            hideLabel={hideLabel}
             hint={hint}
             errors={fieldErrors}
             isSet={fieldCount > 1}
+            className={className}
           >
             <FormFieldContext.Provider
               value={{
@@ -63,7 +67,7 @@ const FormField: React.FunctionComponent<Props> = ({
   );
 };
 
-type FormFieldContextType = Partial<Pick<Props, 'errors'|'id'|'name'|'label'>> & {
+type FormFieldContextType = Partial<Pick<Props, 'errors'|'id'|'name'|'label'|'hideLabel'|'className'>> & {
   field?: FieldProps['field'];
   setFieldValue?: FieldProps['form']['setFieldValue'];
 };
