@@ -1,0 +1,10 @@
+.u-space {
+  --u-space-gap: 1em;
+  margin-left: calc(var(--u-space-gap) * -1);
+  margin-top: calc(var(--u-space-gap) * -1);
+
+  > * {
+    margin-left: var(--u-space-gap);
+    margin-top: var(--u-space-gap);
+  }
+}
