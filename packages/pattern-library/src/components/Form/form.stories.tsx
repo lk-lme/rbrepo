@@ -5,6 +5,7 @@ import Form from './../Form';
 import TextInput from './../TextInput';
 import Radio from './../Radio';
 import Checkbox from './../Checkbox';
+import { SingleDatePicker } from './../DatePicker';
 import Button from './../Button';
 import Stack from './../Stack';
 
@@ -60,6 +61,10 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
               <Checkbox chip label="ValueTwo" value="two" />
               <Checkbox chip label="ValueThree" value="three" />
             </Stack>
+          </FormField>
+
+          <FormField name="start-date" label="Start date">
+            <SingleDatePicker />
           </FormField>
 
           <FormField name="metal" label="Select your metals">

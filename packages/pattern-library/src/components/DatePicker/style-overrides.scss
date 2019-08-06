@@ -1,0 +1,23 @@
+@import './../TextInput/mixins';
+
+:global {
+  .DateInput_input {
+    @include textInput;
+    font-size: 1rem;
+  }
+
+  .SingleDatePickerInput__withBorder {
+    border-color: transparent;
+  }
+
+  .CalendarDay__selected,
+  .CalendarDay__selected:active,
+  .CalendarDay__selected:hover {
+    border-color: var(--t-brand-primary);
+    background-color: var(--t-brand-primary);
+  }
+
+  .DayPickerKeyboardShortcuts_show__bottomRight::before {
+    border-right-color: var(--t-brand-primary);
+  }
+}

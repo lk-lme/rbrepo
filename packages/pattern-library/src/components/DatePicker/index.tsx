@@ -3,8 +3,9 @@ import * as R from 'ramda';
 import { compose, withStateHandlers, mapProps, withHandlers } from 'recompose';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import './style-overrides.scss';
 import { DateRangePicker, SingleDatePicker as RDSingleDatePicker, DayPickerRangeController } from 'react-dates';
-import withFormikField from './../hoc/withFormikField';
+import withFormikField from './../../hoc/withFormikField';
 
 export const SingleDatePicker = compose(
   withFormikField(),
