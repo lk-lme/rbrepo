@@ -1,8 +1,23 @@
-.wrapper {}
+@import './../../styles/tokens/typography';
+
+.wrapper {
+  border: 0;
+  padding: 0;
+
+  + .wrapper {
+    margin-top: 2rem;
+  }
+}
+
+.wrapper--has-error {
+  --input-bg: #fef1f2;
+}
 
 .label {
   display: block;
-  font-weight: 700;
+  font-size: $fs-sm;
+  margin-bottom: 0.625rem;
+  color: var(--text-muted-color);
 }
 
 .hint {

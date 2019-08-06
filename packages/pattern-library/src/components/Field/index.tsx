@@ -19,7 +19,11 @@ const FormField: React.FunctionComponent<Props> = ({
   const errorArr = Array.isArray(errors) ? errors : [errors];
 
   return (
-    <Wrapper className={cx(styles.wrapper, className)}>
+    <Wrapper
+      className={cx(styles.wrapper, className, {
+        [styles['wrapper--has-error']]: errorArr.length,
+      })}
+    >
       {label && (
         <Label
           htmlFor={id}
