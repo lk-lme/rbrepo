@@ -1,15 +1,29 @@
+@import './../../styles/utilities/u-space';
+
+$pageHeaderSpacing: 1.375rem;
+
 .page-header {
+  @include u-space($pageHeaderSpacing);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.page-header__title {
-  display: inline-block;
+.page-header__main {
+  @include u-space(0.75rem, $pageHeaderSpacing);
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  flex-wrap: wrap;
 }
 
-.page-header__main {
-  margin-right: auto;
+.page-header__title {
+  order: 2;
+}
+
+.page-header__badges {
+  @include u-space(0.5rem, 1rem);
+  order: 1;
 }
 
 .page-header__actions,
@@ -17,4 +31,8 @@
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
+}
+
+.page-header__actions {
+  @include u-space(0.5rem, $pageHeaderSpacing);
 }
