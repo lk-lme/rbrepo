@@ -24,35 +24,35 @@ const FormField: React.FunctionComponent<Props> = ({
         [styles['wrapper--has-error']]: errorArr.length,
       })}
     >
-      {label && (
-        <Label
-          htmlFor={id}
-          className={cx({
-            [visuallyHidden['visually-hidden']]: hideLabel,
-          })}
-        >
-          <span className={styles.label}>
+      <div className={styles.header}>
+        {label && (
+          <Label
+            htmlFor={!isSet ? id : null}
+            className={cx(styles.label, {
+              [visuallyHidden['visually-hidden']]: hideLabel,
+            })}
+          >
             {label}
+          </Label>
+        )}
+        {errorArr.length !== 0 && (
+          <span className={styles.errors}>
+            {errorArr.length > 1 ? (
+              <ul>
+                {errorArr.map(err => (
+                  <li>{err}</li>
+                ))}
+              </ul>
+            ) : errorArr[0]}
           </span>
-          {hint && (
-            <span className={styles.hint}>
-              {hint}
-            </span>
-          )}
-        </Label>
-      )}
+        )}
+        {hint && (
+          <div id={`${name}-description`} className={styles.hint}>
+            {hint}
+          </div>
+        )}
+      </div>
       {children}
-      {errorArr.length !== 0 && (
-        <span className={styles.errors}>
-          {errorArr.length > 1 ? (
-            <ul>
-              {errorArr.map(err => (
-                <li>{err}</li>
-              ))}
-            </ul>
-          ) : errorArr[0]}
-        </span>
-      )}
     </Wrapper>
   );
 };

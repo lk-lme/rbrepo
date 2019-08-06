@@ -4,6 +4,7 @@ import buttonStyles from './button.scss';
 
 const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>> = ({
   url,
+  variety,
   children,
   className,
   ...props
@@ -12,7 +13,9 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
 
   return (
     <El
-      className={cx(buttonStyles.btn, className)}
+      className={cx(buttonStyles.btn, className, {
+        [buttonStyles[`btn--${variety}`]]: variety && variety !== 'normal',
+      })}
       href={url}
       ref={ref}
       {...props}
@@ -22,9 +25,16 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
   );
 };
 
+Button.defaultProps = {
+  variety: 'normal',
+};
+
+export type Variety = 'normal'|'naked';
+
 interface Props {
   onClick?(e: Event): void;
   onKeyDown?(e: KeyboardEvent): void;
+  variety?: 'normal'|'naked';
   url?: string;
   tabIndex?: number;
   className?: string;

@@ -33,10 +33,11 @@ storiesOf('PageHeader', module)
         badges={[{ title: 'Draft', type: 'primary' }]}
         actions={[
           {
-            title: 'Clone',
+            title: 'Export all',
+            variety: 'naked',
           },
           {
-            title: 'Export',
+            title: 'Clone',
           },
           {
             title: 'Delete',

@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from './../Heading';
 import Badge, { Props as BadgeProps } from './../Badge';
-import Button from './../Button';
+import Button, { Variety as BtnVariety } from './../Button';
 import styles from './page-header.scss';
 
 const PageHeader: React.FunctionComponent<Props> = ({
@@ -10,23 +10,27 @@ const PageHeader: React.FunctionComponent<Props> = ({
   actions,
 }) => (
   <div className={styles['page-header']}>
-      <div className={styles['page-header__main']}>
-        <Heading className={styles['page-header__title']}>{title}</Heading>
-          {badges && (
-            <ul className={styles['page-header__badges']}>
-              {badges.map(badge => (
-                <li key={badge.title}>
-                  <Badge type={badge.type}>{badge.title}</Badge>
-                </li>
-              ))}
-            </ul>
-          )}
-      </div>
+    <div className={styles['page-header__main']}>
+      <Heading className={styles['page-header__title']}>{title}</Heading>
+      {badges && (
+        <ul className={styles['page-header__badges']}>
+          {badges.map(badge => (
+            <li key={badge.title}>
+              <Badge type={badge.type}>{badge.title}</Badge>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
     {actions && (
       <ul className={styles['page-header__actions']}>
         {actions.map(action => (
           <li key={action.title}>
-            <Button url={action.url} onClick={action.onClick}>
+            <Button
+              url={action.url}
+              onClick={action.onClick}
+              variety={action.variety}
+            >
               {action.title}
             </Button>
           </li>
@@ -45,6 +49,7 @@ interface Props {
     title: string;
     url?: string;
     onClick?(e: Event): void;
+    variety?: BtnVariety;
   }[];
 }
 

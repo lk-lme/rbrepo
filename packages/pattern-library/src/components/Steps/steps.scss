@@ -32,10 +32,6 @@
   .steps__step-title {
     text-decoration: none;
   }
-
-  .steps__step-indicator {
-    transform: scale(1.44);
-  }
 }
 
 .steps__step--success {
@@ -43,6 +39,22 @@
 
   .steps__step-icon {
     color: var(--t-success);
+  }
+
+  .steps__step-indicator {
+    transform: scale(1.6);
+  }
+}
+
+.steps__step--warning {
+  --step-color: #fff;
+
+  .steps__step-icon {
+    color: var(--t-warning);
+  }
+
+  .steps__step-indicator {
+    transform: scale(1.6);
   }
 }
 

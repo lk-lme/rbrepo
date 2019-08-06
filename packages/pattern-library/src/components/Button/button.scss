@@ -1,5 +1,14 @@
 .btn {
-  color: white;
-  background-color: black;
+  --btn-color: #fff;
+  --btn-bg: black;
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border-color);
   padding: 0.5rem 1rem;
+}
+
+.btn--naked {
+  --btn-color: black;
+  --btn-bg: transparent;
+  --btn-border-color: transparent;
 }

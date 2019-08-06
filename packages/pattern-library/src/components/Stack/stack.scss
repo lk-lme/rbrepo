@@ -1,0 +1,14 @@
+@import './../../styles//utilities/u-space';
+
+.stack {
+  @include u-space(1rem);
+  display: inline-flex;
+}
+
+.stack--tight {
+  @include u-space(0.5rem);
+}
+
+.stack--loose {
+  @include u-space(1.5rem);
+}

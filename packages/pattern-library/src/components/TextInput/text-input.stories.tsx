@@ -18,5 +18,7 @@ const ControlledTextInput = () => {
 
 storiesOf('Forms/Text Input', module)
   .add('basic', () => (
-    <ControlledTextInput />
+    <div style={{ padding: '2rem', backgroundColor: 'hsla(var(--t-brand-primary-hsl), 0.03)' }}>
+      <ControlledTextInput />
+    </div>
   ));

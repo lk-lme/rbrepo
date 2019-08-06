@@ -1,4 +1,5 @@
 @import './../../styles/tokens/typography';
+@import './../../styles/utilities/u-space';
 
 .wrapper {
   border: 0;
@@ -13,17 +14,23 @@
   --input-bg: #fef1f2;
 }
 
+.header {
+  @include u-space(0.625rem);
+  margin-bottom: 0.625rem;
+}
+
 .label {
   display: block;
   font-size: $fs-sm;
-  margin-bottom: 0.625rem;
   color: var(--text-muted-color);
 }
 
 .hint {
-  display: block;
+  font-size: $fs-sm;
 }
 
 .errors {
-  color: red;
+  color: var(--t-danger);
+  display: block;
+  font-size: $fs-sm;
 }

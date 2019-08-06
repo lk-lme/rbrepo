@@ -66,7 +66,7 @@ storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
     <div className={styles.form}>
       <div className={styles['form__steps']}>
         <Steps
-          activeID="sec2"
+          activeID="contract"
           steps={[
             {
               id: 'start',
@@ -114,8 +114,8 @@ storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
       </div>
       <div className={styles['form__content']}>
         <Section>
-          <Heading>Review</Heading>
-          {/* <Prose>
+          <Prose>
+            <Heading>Contract details</Heading>
               <p>
                 Pellentesque habitant morbi tristique senectus et netus
                 et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
@@ -128,7 +128,7 @@ storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
                 lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar
                 facilisis. Ut felis.
               </p>
-            </Prose> */}
+            </Prose>
         </Section>
       </div>
     </div>
