@@ -4,6 +4,17 @@
   display: flex;
   list-style: none;
   overflow: auto;
+  // @todo: Revisit RGBA/HSLA variables.
+	background:
+    // Shadow covers
+		linear-gradient(90deg, white 30%, rgba(255, 255, 255,0)),
+    linear-gradient(90deg, rgba(255, 255, 255,0), white 70%) 100% 0,
+    // Shadows
+		radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .08), rgba(0, 0, 0, 0)),
+		radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .08), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+	background-attachment: local, local, scroll, scroll;
 }
 
 .nav__link {
@@ -12,6 +23,7 @@
   padding: 1rem;
   border-bottom: 4px solid transparent;
   text-decoration: none;
+  white-space: nowrap;
 
   &:focus {
     outline: 1px solid var(--t-brand-accent);
