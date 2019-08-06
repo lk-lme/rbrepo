@@ -11,6 +11,11 @@
   padding: 1rem;
   border-bottom: 4px solid transparent;
   text-decoration: none;
+
+  &:focus {
+    outline: 1px solid var(--t-brand-accent);
+    outline-offset: -1px;
+  }
 }
 
 .nav__link--is-active {
