@@ -1,5 +1,6 @@
 .header {
   --text-color: #fff;
+  --link-color: var(--text-color);
   display: flex;
   background-color: var(--t-brand-primary);
   min-height: 4.375rem;
