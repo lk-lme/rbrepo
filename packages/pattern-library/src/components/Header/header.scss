@@ -55,7 +55,10 @@ $header-bp: 40em;
 .search,
 .search__field {
   display: flex;
-  max-width: 23.75rem;
+
+  @media (min-width: $header-bp) {
+    max-width: 23.75rem;
+  }
 }
 
 .search,
