@@ -3,6 +3,7 @@
 .nav__list {
   display: flex;
   list-style: none;
+  overflow: auto;
 }
 
 .nav__link {
