@@ -16,3 +16,7 @@ body {
 a {
   color: var(--link-color);
 }
+
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; }
+input:-moz-placeholder { text-overflow: ellipsis; }
