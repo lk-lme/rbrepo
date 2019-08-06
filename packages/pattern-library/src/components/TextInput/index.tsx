@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
+import cx from 'classnames';
 import withFormikField from '../../hoc/withFormikField';
+import styles from './text-input.scss';
 
 export const TextInput: React.FunctionComponent<Props> = ({
   id,
@@ -20,7 +22,7 @@ export const TextInput: React.FunctionComponent<Props> = ({
     placeholder={placeholder}
     onChange={onChange}
     onBlur={onBlur}
-    className={className}
+    className={cx(styles.input, className)}
     data-testid={testId}
    />;
 };
