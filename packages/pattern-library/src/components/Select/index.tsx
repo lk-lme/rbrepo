@@ -9,9 +9,7 @@ import { TextInput } from './../TextInput';
 import Icon from './../Icon';
 import CaretDownIcon from './../../svg/caret-down.svg';
 import CheckIconCircle from './../../svg/circle-tick.svg';
-import Button from './../Button';
 import styles from './select.scss';
-import { request } from 'https';
 
 export const Select: React.FunctionComponent<Props> = ({
   id,
@@ -37,8 +35,6 @@ export const Select: React.FunctionComponent<Props> = ({
         selectedItem,
         openMenu,
         clearSelection,
-        selectItem,
-        setHighlightedIndex,
       }) => (
         <div
           className={cx(styles.wrapper, isOpen && styles['wrapper--is-open'])}
@@ -52,6 +48,7 @@ export const Select: React.FunctionComponent<Props> = ({
                 className: styles['control__input'],
                 onFocus() {
                   openMenu();
+                  // Highlight the text in the box for easy deletion
                   if (inputValue && textInput.current) {
                     textInput.current.setSelectionRange(0, inputValue.length);
                   }
