@@ -3,8 +3,11 @@
   --t-brand-primary: #13426b;
   --t-brand-accent: #f4364c;
   --t-muted: #637381;
+  --t-keyline: #dfe3e8;
   --t-warning: #f49342;
   --t-danger: var(--t-brand-accent);
   --t-success: #50b83c;
+
+  --t-box-shadow: #{'hsla(var(--t-brand-primary-hsl), 0.1)'} 0 2px 10px 0;
 }
 

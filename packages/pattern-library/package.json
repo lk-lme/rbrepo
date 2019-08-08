@@ -39,6 +39,7 @@
     "case": "^1.6.2",
     "classnames": "^2.2.6",
     "css-loader": "^3.0.0",
+    "downshift": "^3.2.10",
     "faker": "^4.1.0",
     "formik": "^1.5.8",
     "identity-obj-proxy": "^3.0.0",

@@ -5,6 +5,7 @@ import Form from './../Form';
 import TextInput from './../TextInput';
 import Radio from './../Radio';
 import Checkbox from './../Checkbox';
+import Select from './../Select';
 import { SingleDatePicker } from './../DatePicker';
 import Button from './../Button';
 import Stack from './../Stack';
@@ -17,7 +18,8 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
         password: undefined,
         metal: [],
         timeframe: undefined,
-        ['bronze-details']: ''
+        ['bronze-details']: '',
+        ['contract-code']: undefined,
       }}
       validate={(values: {[x: string]: any}) => {
         let errors: { [x: string]: any } = {};
@@ -61,6 +63,26 @@ storiesOf('Forms/Form', module).add('basic demo', () => (
               <Checkbox chip label="ValueTwo" value="two" />
               <Checkbox chip label="ValueThree" value="three" />
             </Stack>
+          </FormField>
+
+          <FormField name="contract-code" label="Contract code">
+            <Select 
+              placeholder="Please select"
+              items={[
+                {
+                  label: 'MX',
+                  value: 'mx',
+                },
+                {
+                  label: 'HU',
+                  value: 'hu',
+                },
+                {
+                  label: 'ME',
+                  value: 'me',
+                },
+              ]}
+            />
           </FormField>
 
           <FormField name="start-date" label="Start date">
