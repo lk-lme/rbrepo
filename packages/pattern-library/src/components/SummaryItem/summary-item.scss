@@ -1,0 +1,80 @@
+@import './../../styles/tokens/typography';
+
+.wrapper {
+  --section-badge-width: 6rem;
+  --section-bp: 50rem;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: 0.25rem 1rem;
+  max-width: 100%;
+}
+
+.section--badges {
+  flex-grow: 1;
+  min-width: var(--section-badge-width);
+  flex-basis: calc((var(--section-bp) - 100%) * 999);
+}
+
+.section--title {
+  min-width: 15%;
+  flex-basis: calc((var(--section-bp) - 100%) * 999);
+  padding-right: 0;
+}
+
+.section--description {
+  min-width: 15%;
+  flex-basis: calc((var(--section-bp) - 100%) * 999);
+  flex-grow: 999;
+  color: var(--text-muted-color);
+}
+
+.section--meta {
+  min-width: 20%;
+  flex-basis: calc((var(--section-bp) - 100%) * 999);
+  color: var(--text-muted-color);
+}
+
+.section--date {
+  min-width: 20%;
+  flex-basis: calc((var(--section-bp) - 100%) * 999);
+  font-size: $fs-sm;
+}
+
+.section--actions {
+  flex-grow: 0;
+}
+
+.title {
+  font-size: $fs-base;
+  font-weight: 700;
+}
+
+.badges {
+  list-style: none;
+  display: inline-flex;
+}
+
+.action-btn {
+  display: block;
+  width: 100%;
+}
+
+.meta {}
+
+.meta__title,
+.meta__definition {
+  float: left;
+}
+
+.meta__title {
+  clear: left;
+  margin-right: 0.5em;
+
+  &:after {
+    content: ':';
+  }
+}
