@@ -6,6 +6,7 @@ import Link from './../Link';
 import FormField from './../FormField';
 import Icon from './../Icon';
 import SearchIcon from './../../svg/search.svg';
+import Logo from './../../svg/lme-logo-inverted.svg';
 import styles from './header.scss';
 import visuallyHidden from './../../styles/utilities/_visually-hidden.scss';
 
@@ -14,7 +15,7 @@ const Header: React.FunctionComponent<Props> = ({
 }) => (
   <header className={styles.header}>
     <Link className={styles.brand}>
-      <img src="https://via.placeholder.com/88x42" alt="" />
+      <Logo className={styles.logo} />
       <span className={visuallyHidden['visually-hidden']}>
         LME CRD
       </span>

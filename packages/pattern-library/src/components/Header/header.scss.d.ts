@@ -1,6 +1,7 @@
 declare const styles: {
   readonly "header": string;
   readonly "brand": string;
+  readonly "logo": string;
   readonly "profile": string;
   readonly "profile__name": string;
   readonly "profile__image": string;
