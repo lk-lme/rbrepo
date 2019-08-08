@@ -1,0 +1,12 @@
+@import '~modularscale-sass/stylesheets/modularscale';
+
+$modularscale: (
+  base: 1rem,
+  ratio: 1.125,
+  em: (
+    base: 1em
+  ),
+  unitless: (
+    base: 1
+  )
+);

@@ -1,3 +1,5 @@
+@import './../../styles/utilities/ms';
+
 .nav {}
 
 .nav__list {
@@ -20,8 +22,10 @@
 .nav__link {
   color: var(--text-muted-color);
   display: block;
-  padding: 1rem;
-  border-bottom: 4px solid transparent;
+  padding: ms(0);
+  border-width: 4px 0;
+  border-style: solid;
+  border-color: transparent;
   text-decoration: none;
   white-space: nowrap;
 

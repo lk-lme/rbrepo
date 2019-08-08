@@ -1,3 +1,4 @@
+@import './../../styles/utilities/ms';
 @import './../../styles/tokens/typography';
 
 .wrapper {
@@ -6,10 +7,12 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  // Ensure baseline alignment for different font sizes
+  line-height: ms(3); 
 }
 
 .section {
-  padding: 0.25rem 1rem;
+  padding: ms(-12) ms(0);
   max-width: 100%;
 }
 
@@ -51,6 +54,11 @@
 .title {
   font-size: $fs-base;
   font-weight: 700;
+
+  > a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
 }
 
 .badges {
@@ -72,7 +80,7 @@
 
 .meta__title {
   clear: left;
-  margin-right: 0.5em;
+  margin-right: ms(-4);
 
   &:after {
     content: ':';

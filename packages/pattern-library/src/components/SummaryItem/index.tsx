@@ -3,12 +3,10 @@ import cx from 'classnames';
 import Badge, { Props as BadgeProps } from './../Badge';
 import Section from './../Section';
 import Heading from './../Heading';
-import Stack from './../Stack';
 import Time from './../Time';
 import Link from './../Link';
 import { Action } from './../ActionMenu';
 import DropdownMenu from './../DropdownMenu';
-import formatDateAsDateTime from './../../utils/formatDateAsDateTime';
 import styles from './summary-item.scss';
 
 const SummaryItem: React.FunctionComponent<Props> = ({
@@ -17,6 +15,7 @@ const SummaryItem: React.FunctionComponent<Props> = ({
   badges,
   date,
   meta,
+  url,
   actions,
 }) => (
   <article className={styles.wrapper}>
@@ -33,7 +32,9 @@ const SummaryItem: React.FunctionComponent<Props> = ({
         )}
       </div>
       <div className={cx(styles.section, styles['section--title'])}>
-        <Heading className={styles.title}>{title}</Heading>
+        <Heading className={styles.title}>
+          {url ? <Link>{title}</Link> : title}
+        </Heading>
       </div>
       <div className={cx(styles.section, styles['section--description'])}>
         {description}
@@ -77,6 +78,7 @@ const SummaryItem: React.FunctionComponent<Props> = ({
 
 interface Props {
   title: string;
+  url?: string;
   meta?: {
     title: string;
     definition: string;

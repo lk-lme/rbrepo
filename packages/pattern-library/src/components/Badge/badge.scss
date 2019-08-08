@@ -1,3 +1,4 @@
+@import './../../styles/utilities/ms';
 @import './../../styles/tokens/typography';
 
 .badge {
@@ -6,7 +7,7 @@
   display: inline-block;
   color: var(--text-color);
   font-size: $fs-sm;
-  padding: 0.2em 1em;
+  padding: ms(-13, $thread: em) ms(0, $thread: em);
   background-color: var(--badge-background-color);
   letter-spacing: 1px;
   border-radius: 999px;

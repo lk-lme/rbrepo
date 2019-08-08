@@ -1,6 +1,7 @@
+@import './../../styles/utilities/ms';
 @import './../../styles/utilities/u-space';
 
-$pageHeaderSpacing: 1.375rem;
+$pageHeaderSpacing: ms(2);
 
 .page-header {
   @include u-space($pageHeaderSpacing);
@@ -10,7 +11,7 @@ $pageHeaderSpacing: 1.375rem;
 }
 
 .page-header__main {
-  @include u-space(0.75rem, $pageHeaderSpacing);
+  @include u-space(ms(-2), $pageHeaderSpacing);
   display: flex;
   align-items: center;
   margin-right: auto;
@@ -25,7 +26,7 @@ $pageHeaderSpacing: 1.375rem;
 }
 
 .page-header__badges {
-  @include u-space(0.5rem, 1rem);
+  @include u-space(ms(-4), ms(0));
   order: 1;
 }
 
@@ -37,5 +38,5 @@ $pageHeaderSpacing: 1.375rem;
 }
 
 .page-header__actions {
-  @include u-space(0.5rem, $pageHeaderSpacing);
+  @include u-space(ms(-4), $pageHeaderSpacing);
 }

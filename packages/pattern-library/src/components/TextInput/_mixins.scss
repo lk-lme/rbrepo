@@ -1,7 +1,10 @@
+@import './../../styles/utilities/ms';
+
 @mixin textInput {
   border: 0;
   box-shadow: var(--t-box-shadow);
-  padding: 1.3em;
+  padding: ms(2, $thread: em);
+
   background-color: var(--input-bg, #fff);
   color: var(--text-color);
 

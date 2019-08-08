@@ -1,3 +1,4 @@
+@import './../../styles/utilities/ms';
 @import './../../styles/tokens/typography';
 
 .steps {
@@ -6,7 +7,7 @@
 }
 
 .steps__step {
-  --step-status-size: 0.625em; // The icon/dot size
+  --step-status-size: #{ms(-4, $thread: em)}; // The icon/dot size
   --step-color: var(--t-brand-primary); // The background color of the dot
   --step-line-top-color: var(--t-brand-primary);
   --step-line-bottom-color: var(--t-brand-primary);
@@ -22,7 +23,7 @@
   }
 
   &:not(:last-child) .steps__step-label {
-    margin-bottom: 1.8em;
+    margin-bottom: ms(4);
   }
 }
 
@@ -63,7 +64,7 @@
   flex-direction: column;
   align-items: center;
   width: var(--step-status-size);
-  margin-right: 1em;
+  margin-right: ms(0);
 
   &:before,
   &:after {

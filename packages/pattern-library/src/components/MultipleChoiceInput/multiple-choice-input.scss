@@ -1,3 +1,5 @@
+@import './../../styles/utilities/ms';
+
 .wrapper {
   display: flex;
 
@@ -9,18 +11,21 @@
   }
 
   + .wrapper {
-    margin-top: 0.5em;
+    margin-top: ms(-4);
   }
 }
 
 .wrapper--radio .control {
-  border-radius: 50%;
+  &,
+  &:before {
+    border-radius: 50%;
+  }
 
   &:before {
     content: '';
     display: var(--check-display, none);
     background-color: var(--t-brand-primary);
-    border-radius: 50%;
+    // Use these values to prevent rounding issues.
     width: 0.75em;
     height: 0.75em;
   }
@@ -30,7 +35,7 @@
   display: inline-flex;
 
   .label {
-    padding: 0.625em 1.875em ;
+    padding: ms(-4, $thread: em) ms(5, $thread: em) ;
     color: var(--chip-color, var(--t-brand-primary));
     background-color: var(--chip-bg, #fff);
     border: 1px solid var(--t-brand-primary);
@@ -51,18 +56,19 @@
 }
 
 .control {
-  --control-size: 1.25em;
+  --control-size: #{ms(2)};
   width: var(--control-size);
   height: var(--control-size);
   border: 1px solid var(--t-brand-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1em;
+  margin-right: ms(-4);
 }
 
 .icon {
   --icon-fill: var(--t-brand-primary);
+    // Use this value to prevent scaling issue.
   --icon-size: 0.85em;
   display: var(--check-display, none);
 }

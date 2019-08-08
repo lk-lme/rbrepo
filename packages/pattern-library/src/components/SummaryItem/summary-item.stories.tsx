@@ -12,6 +12,7 @@ storiesOf('SummaryItem', module).add('basic', () => (
     <div style={{ marginTop: '2rem' }}>
       <SummaryItem
         title="AH Future"
+        url="#"
         description="Aluminium alloy future"
         meta={[
           {

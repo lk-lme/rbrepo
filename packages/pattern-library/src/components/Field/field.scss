@@ -1,12 +1,13 @@
 @import './../../styles/tokens/typography';
 @import './../../styles/utilities/u-space';
+@import './../../styles/utilities/ms';
 
 .wrapper {
   border: 0;
   padding: 0;
 
   + .wrapper {
-    margin-top: 2rem;
+    margin-top: ms(6);
   }
 }
 
@@ -15,7 +16,7 @@
 }
 
 .header {
-  margin-bottom: 0.625rem;
+  margin-bottom: ms(-4);
 }
 
 .label {
@@ -33,5 +34,5 @@
   color: var(--t-danger);
   display: block;
   font-size: $fs-sm;
-  margin-top: 0.625rem;
+  margin-top: ms(-4);
 }

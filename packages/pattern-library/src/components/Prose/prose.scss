@@ -1,5 +1,7 @@
+@import './../../styles/utilities/ms';
+
 .prose {
-  --prose-top-spacing: 1rem;
+  --prose-top-spacing: #{ms(0)};
 
   > * + * {
     margin-top: var(--prose-top-spacing);
