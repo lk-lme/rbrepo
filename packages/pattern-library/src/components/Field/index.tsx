@@ -27,6 +27,7 @@ const FormField: React.FunctionComponent<Props> = ({
       <div className={styles.header}>
         {label && (
           <Label
+            id={`${id}-label`}
             htmlFor={!isSet ? id : null}
             className={cx(styles.label, {
               [visuallyHidden['visually-hidden']]: hideLabel,
@@ -35,17 +36,6 @@ const FormField: React.FunctionComponent<Props> = ({
             {label}
           </Label>
         )}
-        {errorArr.length !== 0 && (
-          <span className={styles.errors}>
-            {errorArr.length > 1 ? (
-              <ul>
-                {errorArr.map(err => (
-                  <li>{err}</li>
-                ))}
-              </ul>
-            ) : errorArr[0]}
-          </span>
-        )}
         {hint && (
           <div id={`${name}-description`} className={styles.hint}>
             {hint}
@@ -53,6 +43,17 @@ const FormField: React.FunctionComponent<Props> = ({
         )}
       </div>
       {children}
+      {errorArr.length !== 0 && (
+        <span className={styles.errors}>
+          {errorArr.length > 1 ? (
+            <ul>
+              {errorArr.map(err => (
+                <li>{err}</li>
+              ))}
+            </ul>
+          ) : errorArr[0]}
+        </span>
+      )}
     </Wrapper>
   );
 };

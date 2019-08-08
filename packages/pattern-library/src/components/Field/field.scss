@@ -15,7 +15,6 @@
 }
 
 .header {
-  @include u-space(0.625rem);
   margin-bottom: 0.625rem;
 }
 
@@ -23,6 +22,7 @@
   display: block;
   font-size: $fs-sm;
   color: var(--text-muted-color);
+  margin-bottom: inherit;
 }
 
 .hint {
@@ -33,4 +33,5 @@
   color: var(--t-danger);
   display: block;
   font-size: $fs-sm;
+  margin-top: 0.625rem;
 }
