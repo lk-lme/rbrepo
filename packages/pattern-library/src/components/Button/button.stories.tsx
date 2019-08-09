@@ -4,7 +4,7 @@ import { addReadme } from 'storybook-readme';
 import Button from '.';
 import ButtonReadme from './README.md';
 
-storiesOf('Button', module)
+storiesOf('Button/Style', module)
   .addDecorator(addReadme)
   .addParameters({
     readme: {
@@ -51,4 +51,28 @@ storiesOf('Button', module)
       </Button>
     </div>
   ));
+
+storiesOf('Button/Size', module)
+  .addDecorator(addReadme)
+  .addParameters({
+    readme: {
+      sidebar: ButtonReadme,
+    },
+  })
+  .add('small', () => (
+    <div style={{ padding: '2rem' }}>
+      <Button variety="primary" size="sm">
+        Primary
+      </Button>
+    </div>
+  ))
+  .add('large', () => (
+    <div style={{ padding: '2rem' }}>
+      <Button variety="primary" size="lg">
+        Primary
+      </Button>
+    </div>
+  ));
+
+
 
