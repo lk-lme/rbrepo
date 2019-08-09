@@ -1,8 +1,11 @@
 :root {
+  --t-base: #212b36;
   --t-brand-primary-hsl: 208, 70%, 25%;
   --t-brand-primary: #13426b;
   --t-brand-accent: #f4364c;
   --t-muted: #637381;
+  --t-disabled-bg: #b8c6d2;
+  --t-primary-light: #e7ecf0;
   --t-keyline: #dfe3e8;
   --t-warning: #f49342;
   --t-danger: var(--t-brand-accent);

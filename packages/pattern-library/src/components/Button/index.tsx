@@ -5,6 +5,7 @@ import buttonStyles from './button.scss';
 const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>> = ({
   url,
   variety,
+  disabled,
   children,
   className,
   ...props
@@ -18,6 +19,7 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
       })}
       href={url}
       ref={ref}
+      disabled={disabled}
       {...props}
     >
       {children}
@@ -26,15 +28,16 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
 };
 
 Button.defaultProps = {
-  variety: 'normal',
+  variety: 'primary',
 };
 
-export type Variety = 'normal'|'naked';
+export type Variety = 'primary'|'secondary'|'outline'|'naked';
 
 interface Props {
   onClick?(e: Event): void;
   onKeyDown?(e: KeyboardEvent): void;
-  variety?: 'normal'|'naked';
+  variety?: Variety;
+  disabled?: boolean;
   url?: string;
   tabIndex?: number;
   className?: string;
