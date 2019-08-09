@@ -2,6 +2,11 @@
 
 .stack {
   @include u-space(1rem);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stack--inline {
   display: inline-flex;
 }
 
