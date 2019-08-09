@@ -15,7 +15,7 @@ const Badge: React.FunctionComponent<Props> = ({ children, type }) => (
 type Type = 'success'|'primary'|'danger'|'warning';
 
 export interface Props {
-  type?: Type;
+  type: Type;
 }
 
 export default Badge;
