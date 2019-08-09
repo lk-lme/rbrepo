@@ -5,6 +5,7 @@ declare const styles: {
   readonly "alert--danger": string;
   readonly "alert--success": string;
   readonly "alert__title": string;
+  readonly "icon": string;
 };
 export = styles;
 

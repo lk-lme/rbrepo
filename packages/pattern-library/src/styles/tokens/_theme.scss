@@ -1,15 +1,27 @@
 :root {
   --t-base: #212b36;
-  --t-brand-primary-hsl: 208, 70%, 25%;
+  --t-brand-primary-10: #e5eaee;
+  --t-brand-primary-20: #ced7df;
+  --t-brand-primary-30: #b6c4d0;
+  --t-brand-primary-40: #a0b2c3;
+  --t-brand-primary-50: #889fb4;
+  --t-brand-primary-60: #708da5;
+  --t-brand-primary-70: #597a97;
+  --t-brand-primary-80: #426889;
+  --t-brand-primary-90: #2a5479;
   --t-brand-primary: #13426b;
+  --t-brand-primary-hsl: 208, 70%, 25%;
   --t-brand-accent: #f4364c;
+  --t-brand-accent-subdued: #fcf2f4	;
   --t-muted: #637381;
   --t-disabled-bg: #b8c6d2;
-  --t-primary-light: #e7ecf0;
+  --t-primary-light: #122738;
   --t-keyline: #dfe3e8;
   --t-warning: #f49342;
-  --t-danger: var(--t-brand-accent);
+  --t-warning-subdued: #fcfaf7;
   --t-success: #50b83c;
+  --t-success-subdued: #f8fcf5;
+  --t-danger: var(--t-brand-accent);
 
   --t-box-shadow: #{'hsla(var(--t-brand-primary-hsl), 0.1)'} 0 2px 10px 0;
 }
