@@ -3,8 +3,9 @@
 .btn {
   --btn-color: #fff;
   --btn-bg: var(--t-brand-primary);
+  --btn-padding: #{ms(-4)} #{ms(0)};
   --btn-hover-color: var(--t-brand-primary);
-  --btn-hover-bg: #b3c2cf;
+  --btn-hover-bg: var(--t-brand-primary-30);
   --btn-border-color: transparent;
   --btn-disabled-color: #fff;
   --btn-disabled-border-color: transparent;
@@ -15,7 +16,7 @@
   background-color: var(--btn-bg);
   border: 1px solid var(--btn-border-color);
   border-radius: 3px;
-  padding: ms(-4) ms(0);
+  padding: var(--btn-padding);
   transition: all 0.1s;
 
   &:hover:not(:disabled) {
@@ -51,7 +52,7 @@
 }
 
 .btn--secondary {
-  --btn-bg: var(--t-primary-light);
+  --btn-bg: var(--t-brand-primary-30);
   --btn-color: var(--t-text-color);
   --btn-hover-color: var(--t-text-color);
   --btn-hover-bg: #eef1f4;
@@ -69,4 +70,12 @@
   --btn-disabled-bg: var(--btn-bg);
   --btn-disabled-color: var(--text-muted-color);
   --btn-disabled-border-color: var(--t-keyline);
+}
+
+.btn--sm {
+  --btn-padding: #{ms(-9)} #{ms(-2)};
+}
+
+.btn--lg {
+  --btn-padding: #{ms(-1)} #{ms(2)};
 }
