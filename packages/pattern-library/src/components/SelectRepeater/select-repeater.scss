@@ -1,0 +1,46 @@
+@import './../../styles/utilities/ms';
+@import './../../styles/tokens/typography';
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+
+  > *:first-child {
+    width: 100%;
+  }
+}
+
+.form__select {
+  flex-grow: 1;
+  margin-right: ms(0);
+}
+
+.item {
+  background-color: #fff;
+  border: 0;
+  border-left: 3px solid var(--t-brand-primary);
+  padding: ms(0);
+  margin-top: ms(0);
+}
+
+.item__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: ms(0);
+}
+
+.item__label {
+  font-size: $fs-md;
+  margin-right: auto;
+}
+
+.item__delete-btn {
+  margin-left: ms(0);
+}
+
+
+// .primary-toggle {
+//   label {
+//     margin-top: 0;
+//   }
+// }

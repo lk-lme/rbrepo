@@ -15,11 +15,12 @@ const MultipleChoiceInput: React.FunctionComponent<Props> = ({
   name,
   checked = false,
   chip,
+  className,
   onChange,
 }) => {
   return (
   <label
-    className={cx(styles.wrapper, {
+    className={cx(styles.wrapper, className, {
       [styles['wrapper--chip']]: chip,
       [styles['wrapper--radio']]: type === 'radio',
     })}
@@ -58,6 +59,7 @@ export interface Props {
   checked?: boolean;
   /** The callback function run when the input is checked/un-checked. */
   onChange?: ChangeEventHandler;
+  className?: string;
 }
 
 export default MultipleChoiceInput;

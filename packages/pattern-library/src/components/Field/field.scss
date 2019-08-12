@@ -6,9 +6,29 @@
   border: 0;
   padding: 0;
 
+  // + .wrapper {
+  //   margin-top: ms(6);
+  // }
+
+  // @todo: Refactor/be more explicit?
   + .wrapper {
-    margin-top: ms(6);
+    padding-top: ms(6);
   }
+
+  .wrapper {
+    border-left: 2px solid var(--t-brand-primary);
+    margin-left: ms(6);
+    padding: (ms(6) / 2) ms(0);
+    margin-top: ms(-4);
+
+    + .wrapper {
+      margin-top: 0;
+    }
+  }
+}
+
+.wrapper--inset {
+
 }
 
 .wrapper--has-error {

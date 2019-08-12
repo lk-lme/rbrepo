@@ -24,24 +24,26 @@ const FormField: React.FunctionComponent<Props> = ({
         [styles['wrapper--has-error']]: errorArr.length,
       })}
     >
-      <div className={styles.header}>
-        {label && (
-          <Label
-            id={`${id}-label`}
-            htmlFor={!isSet ? id : null}
-            className={cx(styles.label, {
-              [visuallyHidden['visually-hidden']]: hideLabel,
-            })}
-          >
-            {label}
-          </Label>
-        )}
-        {hint && (
-          <div id={`${name}-description`} className={styles.hint}>
-            {hint}
-          </div>
-        )}
-      </div>
+      {(label || hint) && (
+        <div className={styles.header}>
+          {label && (
+            <Label
+              id={`${id}-label`}
+              htmlFor={!isSet ? id : null}
+              className={cx(styles.label, {
+                [visuallyHidden['visually-hidden']]: hideLabel,
+              })}
+            >
+              {label}
+            </Label>
+          )}
+          {hint && (
+            <div id={`${name}-description`} className={styles.hint}>
+              {hint}
+            </div>
+          )}
+        </div>
+      )}
       {children}
       {errorArr.length !== 0 && (
         <span className={styles.errors}>
@@ -51,7 +53,9 @@ const FormField: React.FunctionComponent<Props> = ({
                 <li>{err}</li>
               ))}
             </ul>
-          ) : errorArr[0]}
+          ) : (
+            errorArr[0]
+          )}
         </span>
       )}
     </Wrapper>

@@ -10,7 +10,7 @@
       0 0 0 3px var(--t-brand-primary);
   }
 
-  + .wrapper {
+  &:not(:first-child) {
     margin-top: ms(-4);
   }
 }

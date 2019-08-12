@@ -15,6 +15,7 @@ const FormField: React.FunctionComponent<Props> = ({
   hideLabel,
   hint,
   className,
+  onUnmount,
   children,
 }) => {
   const { setCurrent } = useContext(FormContext);
@@ -22,7 +23,7 @@ const FormField: React.FunctionComponent<Props> = ({
   const fieldCount = filterChildren(children, (child: React.ReactChild) => {
     // @todo: Figure out how to appease TSC
     // @ts-ignore
-    return child.type ? child.type.isFormInput : false;
+    return child && child.type ? child.type.isFormInput : false;
   }).length;
 
   useEffect(() => {
