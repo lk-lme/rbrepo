@@ -3,7 +3,7 @@ import cx from 'classnames';
 import styles from './field.scss';
 import visuallyHidden from './../../styles/utilities/_visually-hidden.scss';
 
-const FormField: React.FunctionComponent<Props> = ({
+const Field: React.FunctionComponent<Props> = ({
   name,
   id = name,
   label,
@@ -62,7 +62,7 @@ const FormField: React.FunctionComponent<Props> = ({
   );
 };
 
-FormField.defaultProps = {
+Field.defaultProps = {
   isSet: false,
   errors: [],
 };
@@ -73,10 +73,10 @@ export interface Props {
   label?: string;
   hideLabel?: boolean;
   id?: string;
-  className?: string;
+  className?: string
   hint?: string|ReactElement;
   errors?: string|string[];
   isSet?: boolean;
 }
 
-export default FormField;
+export default Field;

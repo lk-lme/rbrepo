@@ -3,14 +3,12 @@
 @import './../../styles/utilities/ms';
 
 .wrapper {
+  --wrapper-bg: transparent;
   border: 0;
-  padding: 0;
+  padding: ms(0);
+  margin: ms(0) * -1;
+  background-color: var(--wrapper-bg);
 
-  // + .wrapper {
-  //   margin-top: ms(6);
-  // }
-
-  // @todo: Refactor/be more explicit?
   + .wrapper {
     padding-top: ms(6);
   }
@@ -27,12 +25,9 @@
   }
 }
 
-.wrapper--inset {
-
-}
 
 .wrapper--has-error {
-  --input-bg: #fef1f2;
+  --wrapper-bg: #fef1f2;
 }
 
 .header {
