@@ -16,6 +16,11 @@ export const Select: React.FunctionComponent<Props> = ({
   items,
   placeholder,
   onChange,
+  inputValue,
+  handleInputChange,
+  onSelect,
+  onStateChange,
+  className,
 }) => {
   const textInput = useRef<HTMLInputElement>();
 
@@ -23,7 +28,10 @@ export const Select: React.FunctionComponent<Props> = ({
     <Downshift
       id={id}
       onChange={onChange}
+      onSelect={onSelect}
       itemToString={item => (item ? item.label : '')}
+      inputValue={inputValue}
+      onStateChange={onStateChange}
     >
       {({
         getInputProps,
@@ -37,29 +45,30 @@ export const Select: React.FunctionComponent<Props> = ({
         clearSelection,
       }) => (
         <div
-          className={cx(styles.wrapper, isOpen && styles['wrapper--is-open'])}
+          className={cx(styles.wrapper, isOpen && styles['wrapper--is-open'], className)}
         >
           <div className={styles.control}>
             <TextInput
               {...getInputProps({
                 id,
-                ref: textInput,
                 placeholder,
                 className: styles['control__input'],
-                onFocus() {
-                  openMenu();
-                  // Highlight the text in the box for easy deletion
-                  if (inputValue && textInput.current) {
-                    textInput.current.setSelectionRange(0, inputValue.length);
-                  }
-                },
-                onKeyDown(e: KeyboardEvent) {
-                  if (keycode(e.keyCode) === 'enter' && !inputValue) {
-                    e.preventDefault();
-                    clearSelection();
-                  }
-                },
+                onChange: handleInputChange,
               })}
+              ref={textInput}
+              onFocus={() => {
+                openMenu();
+                // Highlight the text in the box for easy deletion
+                if (inputValue && textInput.current) {
+                  textInput.current.setSelectionRange(0, inputValue.length);
+                }
+              }}
+              onKeyDown={(e: KeyboardEvent) => {
+                if (keycode(e.keyCode) === 'enter' && !inputValue) {
+                  e.preventDefault();
+                  clearSelection();
+                }
+              }}
             />
             <Icon
               aria-hidden="true"
@@ -115,13 +124,15 @@ export const Select: React.FunctionComponent<Props> = ({
   );
 };
 
-type Props = Pick<DownshiftProps<any>, 'onChange'> & {
-  id?: string;
-  placeholder?: string;
+type Props = Pick<DownshiftProps<any>, 'onChange'|'onStateChange'|'onSelect'|'inputValue'> & {
   items: {
     value: string;
     label: string;
   }[];
+  id?: string;
+  placeholder?: string;
+  className?: string;
+  handleInputChange?(e: Event): void;
 };
 
 export default compose(
