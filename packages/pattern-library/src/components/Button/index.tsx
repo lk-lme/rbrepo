@@ -9,6 +9,7 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
   disabled,
   children,
   className,
+  type,
   ...props
 }, ref) => {
   const El = url ? 'a' : 'button';
@@ -22,6 +23,7 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
       href={url}
       ref={ref}
       disabled={disabled}
+      type={type}
       {...props}
     >
       {children}
@@ -46,6 +48,7 @@ export interface Props {
   url?: string;
   tabIndex?: number;
   className?: string;
+  type?: 'button'|'submit';
   children: ReactNode;
 }
 
