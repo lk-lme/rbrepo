@@ -3,7 +3,7 @@ import Button from './../Button';
 import Popover from './../Popover';
 import ActionMenu, { Action } from './../ActionMenu';
 
-const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions }) => {
+const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions, classNames = {} }) => {
   const btnElRef = useRef<HTMLButtonElement>(null);
   const [active, setActive] = useState(false);
 
@@ -14,7 +14,7 @@ const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions }) => {
 
   return (
     <>
-      <Button ref={btnElRef} onClick={handleClick}>
+      <Button ref={btnElRef} onClick={handleClick} className={classNames.button}>
         {label}
       </Button>
       <Popover anchor={btnElRef} isActive={active} placement="bottom-start">
@@ -27,6 +27,9 @@ const DropdownMenu: React.FunctionComponent<Props> = ({ label, actions }) => {
 interface Props {
   label: string;
   actions: Action[];
+  classNames?: {
+    button?: string;
+  };
 }
 
 export default DropdownMenu;
