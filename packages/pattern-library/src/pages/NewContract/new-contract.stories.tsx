@@ -9,6 +9,11 @@ import Heading from './../../components/Heading';
 import Section from './../../components/Section';
 import Generic from './../../components/layouts/Generic';
 import Prose from './../../components/Prose';
+import Form from './../../components/Form';
+import FormField from './../../components/FormField';
+import TextInput from './../../components/TextInput';
+import Button from './../../components/Button';
+import Stack from './../../components/Stack';
 
 storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
   <Generic
@@ -116,19 +121,37 @@ storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
         <Section>
           <Prose>
             <Heading>Contract details</Heading>
-              <p>
-                Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-                vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet
-                quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris
-                placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-                pharetra. Vestibulum erat wisi, condimentum sed,{' '}
-                <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum,
-                elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus
-                lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar
-                facilisis. Ut felis.
-              </p>
-            </Prose>
+            <p>
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+              amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em>{' '}
+              Mauris placerat eleifend leo. Quisque sit amet est et sapien
+              ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,{' '}
+              <code>commodo vitae</code>, ornare sit amet, wisi. Aenean
+              fermentum, elit eget tincidunt condimentum, eros ipsum rutrum
+              orci, sagittis tempus lacus enim ac dui.{' '}
+              <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut
+              felis.
+            </p>
+          </Prose>
+          <Form
+            initialValues={{
+              code: 'FCECSX',
+            }}
+            validate={() => {}}
+            onSubmit={() => {}}
+          >
+            {({ handleSubmit }) => (
+              <form onSubmit={handleSubmit}>
+                <FormField name="code" label="Contract code">
+                  <TextInput />
+                </FormField>
+
+                <Button>Submit</Button>
+              </form>
+            )}
+          </Form>
         </Section>
       </div>
     </div>
