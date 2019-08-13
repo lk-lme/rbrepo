@@ -1,4 +1,4 @@
-@import './../../styles/utilities/ms';
+@import '~Styles/utilities/ms';
 
 $header-bp: 40em;
 
@@ -115,4 +115,30 @@ $header-bp: 40em;
   top: 0;
   right: 0;
   bottom: 0;
+}
+
+.secondary-action {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: ms(-6);
+  }
+}
+
+.secondary-action--has-unread {
+  position: relative;
+
+  &:after {
+    content: '';
+    // Avoid rounding issues
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: block;
+    background-color: var(--t-brand-accent);
+    position: absolute;
+    right: -0.3em;
+    top: -0.3em;
+  }
 }
