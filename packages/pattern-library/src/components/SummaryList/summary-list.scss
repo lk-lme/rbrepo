@@ -1,0 +1,15 @@
+@import '~Styles/utilities/ms';
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: block;
+
+  &:not(:last-child) {
+    padding-bottom: ms(0);
+    margin-bottom: ms(0);
+    border-bottom: 1px solid var(--t-keyline)
+  }
+}
