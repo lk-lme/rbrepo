@@ -1,6 +1,6 @@
-@import './../../styles/tokens/typography';
-@import './../../styles/utilities/u-space';
-@import './../../styles/utilities/ms';
+@import '~Styles/tokens/typography';
+@import '~Styles/utilities/u-space';
+@import '~Styles/utilities/ms';
 
 .wrapper {
   --wrapper-bg: transparent;
@@ -37,7 +37,7 @@
 .label {
   display: block;
   font-size: $fs-sm;
-  color: var(--text-muted-color);
+  color: var(--t-brand-primary);
   margin-bottom: inherit;
 }
 
