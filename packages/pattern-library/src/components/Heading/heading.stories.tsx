@@ -1,17 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { addReadme } from 'storybook-readme';
 import Heading from '.';
 import Section from './../Section';
-import HeadingReadme from './README.md';
+import Readme from './README.md';
 
 storiesOf('Typography / Heading', module)
-  .addDecorator(addReadme)
-  .addParameters({
-    readme: {
-      sidebar: HeadingReadme,
-    },
-  })
+  .addParameters({ readme: { sidebar: Readme } })
   .add('Manual', () => (
     <Heading level={2}>
       This is an h2
