@@ -1,12 +1,23 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PageHeader from '.';
+import Link from './../Link';
 
 storiesOf('PageHeader', module)
   .add('basic', () => (
     <div style={{ padding: '2rem' }}>
       <PageHeader
         title="Contract: AH Future"
+      />
+    </div>
+  ))
+  .add('with info text', () => (
+    <div style={{ padding: '2rem' }}>
+      <PageHeader
+        title="Contract: AH Future"
+        infoText={(
+          <Link>View history</Link>
+        )}
       />
     </div>
   ))
@@ -26,7 +37,7 @@ storiesOf('PageHeader', module)
       />
     </div>
   ))
-  .add('with badge and actions', () => (
+  .add('with badge, actions and info', () => (
     <div style={{ padding: '2rem' }}>
       <PageHeader
         title="Contract: AH Future"
@@ -43,6 +54,9 @@ storiesOf('PageHeader', module)
             title: 'Delete',
           },
         ]}
+        infoText={(
+          <Link>View history</Link>
+        )}
       />
     </div>
   ))

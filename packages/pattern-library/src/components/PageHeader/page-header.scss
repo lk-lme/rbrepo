@@ -1,4 +1,4 @@
-@import './../../styles/utilities/ms';
+@import '~Styles/utilities/ms';
 @import './../../styles/utilities/u-space';
 
 $pageHeaderSpacing: ms(2);
@@ -23,6 +23,8 @@ $pageHeaderSpacing: ms(2);
 
 .page-header__title {
   order: 2;
+  // For baseline alignment with info text
+  line-height: ms(7);
 }
 
 .page-header__badges {
@@ -35,8 +37,14 @@ $pageHeaderSpacing: ms(2);
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
+  align-items: center;
 }
 
 .page-header__actions {
   @include u-space(ms(-4), $pageHeaderSpacing);
+}
+
+.page-header__info-text {
+  order: 3;
+  align-self: flex-end;
 }

@@ -7,6 +7,7 @@ import styles from './page-header.scss';
 const PageHeader: React.FunctionComponent<Props> = ({
   title,
   badges,
+  infoText,
   actions,
 }) => (
   <div className={styles['page-header']}>
@@ -20,6 +21,9 @@ const PageHeader: React.FunctionComponent<Props> = ({
             </li>
           ))}
         </ul>
+      )}
+      {infoText && (
+        <span className={styles['page-header__info-text']}>{infoText}</span>
       )}
     </div>
     {actions && (
@@ -42,6 +46,7 @@ const PageHeader: React.FunctionComponent<Props> = ({
 
 interface Props {
   title: string;
+  infoText?: string|React.ReactNode;
   badges?: (BadgeProps & {
     title: string;
   })[];
