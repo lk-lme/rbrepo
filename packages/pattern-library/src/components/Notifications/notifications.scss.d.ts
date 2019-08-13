@@ -8,6 +8,7 @@ declare const styles: {
   readonly "icon": string;
   readonly "message": string;
   readonly "more": string;
+  readonly "empty-message": string;
 };
 export = styles;
 

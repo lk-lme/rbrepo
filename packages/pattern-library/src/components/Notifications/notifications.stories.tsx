@@ -1,11 +1,12 @@
 import React from 'react';
 import faker from 'faker';
 import { storiesOf } from '@storybook/react';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Notifications from '.';
 
 storiesOf('Notifications', module)
-  .add('basic', () => (
-    <div style={{ padding: '2rem' }}>
+  .addDecorator(PaddingDecorator())
+  .add('Populated', () => (
       <Notifications
         items={[
           {
@@ -25,5 +26,7 @@ storiesOf('Notifications', module)
           },
         ]}
       />
-    </div>
+  ))
+  .add('Empty', () => (
+    <Notifications />
   ));
