@@ -1,21 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Header from './../../components/Header';
-import Nav from './../../components/Nav';
-import Steps from './../../components/Steps';
-import PageHeader from './../../components/PageHeader';
-import styles from './../../components/Page/page.scss';
-import Heading from './../../components/Heading';
-import Section from './../../components/Section';
-import Generic from './../../components/layouts/Generic';
-import Prose from './../../components/Prose';
-import Form from './../../components/Form';
-import FormField from './../../components/FormField';
-import TextInput from './../../components/TextInput';
-import Button from './../../components/Button';
-import Stack from './../../components/Stack';
+import Header from 'Components/Header';
+import Nav from 'Components/Nav';
+import Steps from 'Components/Steps';
+import PageHeader from 'Components/PageHeader';
+import styles from 'Components/Page/page.scss';
+import Heading from 'Components/Heading';
+import Section from 'Components/Section';
+import Generic from 'Components/layouts/Generic';
+import Prose from 'Components/Prose';
+import Form from 'Components/Form';
+import FormField from 'Components/FormField';
+import TextInput from 'Components/TextInput';
+import Button from 'Components/Button';
 
-storiesOf('Pages/New Contract/Contract Details', module).add('empty', () => (
+storiesOf('Pages/Contract form', module).add('empty', () => (
   <Generic
     headerComponent={
       <Header

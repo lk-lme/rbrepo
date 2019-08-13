@@ -7,7 +7,7 @@
     "jsx": "react",
     "rootDirs": ["src", "stories"],
     "baseUrl": "src",
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "moduleResolution": "node"
   },
   "include": ["src/**/*"],

@@ -1,5 +1,5 @@
-@import './../../styles/utilities/ms';
-@import './../../styles/tokens/typography';
+@import '~Styles/utilities/ms';
+@import '~Styles/tokens/typography';
 
 .wrapper {
   --section-badge-width: 6rem;
@@ -8,7 +8,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   // Ensure baseline alignment for different font sizes
-  line-height: ms(3); 
+  line-height: ms(3);
 }
 
 .section {

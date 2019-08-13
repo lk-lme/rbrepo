@@ -1,5 +1,5 @@
 import React from 'react';
-import formatDateAsDateTime from './../../utils/formatDateAsDateTime';
+import formatDateAsDateTime from 'Utils/formatDateAsDateTime';
 import styles from './time.scss';
 
 const Time: React.FunctionComponent<Props> = ({ date, children, ...props }) => {

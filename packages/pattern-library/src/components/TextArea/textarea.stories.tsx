@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import TextArea from '.';
-import PaddingDecorator from './../../../.storybook/decorators/PaddingDecorator';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 
 const ControlledTextArea = () => {
   const [val, setVal] = useState('');

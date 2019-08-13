@@ -1,36 +1,4 @@
-// * {
-//   --space: 1rem;
-//   --context: 0rem;
-// }
-
-// .u-space {
-//   margin-top: calc((var(--context) - var(--space)));
-//   margin-left: calc((var(--context) - var(--space)));
-
-//   > *:not(.u-space) {
-//     margin-top: var(--space);
-//     margin-left: var(--space);
-//   }
-
-//   > .u-space {
-//     --context: var(--space);
-//   }
-// }
-
-.u-space {
-  // --space: 1rem;
-  // --context: 0rem;
-
-  // margin-top: calc((var(--context) - var(--space)));
-  // margin-left: calc((var(--context) - var(--space)));
-
-  // > *:not(.u-space) {
-  //   margin-top: var(--space);
-  //   margin-left: var(--space);
-  // }
-}
-
-@mixin u-space($value, $context: 0) {
+@mixin u-space($value, $context: 0, $padding: false) {
   $offset: $value;
 
   @if ($context == $value) {
@@ -45,28 +13,12 @@
   margin-left: $offset;
 
   > * {
-    margin-top: $value;
-    margin-left: $value;
+    @if ($padding) {
+      padding-top: $value;
+      padding-left: $value;
+    } @else {
+      margin-top: $value;
+      margin-left: $value;
+    }
   }
 }
-
-
-// @mixin u-space($value, $context: 0) {
-//   $offset: $value;
-
-//   @if ($context == $value) {
-//     $offset: 0;
-//   } @else if ($context > $value) {
-//     $offset: $context - $value;
-//   } @else {
-//     $offset: - $offset;
-//   }
-
-//   margin-top: $offset;
-//   margin-left: $offset;
-
-//   > * {
-//     margin-top: $value;
-//     margin-left: $value;
-//   }
-// }
