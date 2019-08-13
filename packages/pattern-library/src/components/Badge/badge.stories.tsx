@@ -1,25 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Badge from '.';
+import Readme from './README.md';
 
 storiesOf('Badge', module)
+  .addDecorator(PaddingDecorator())
+  .addParameters({ readme: { sidebar: Readme } })
   .add('default', () => (
-    <div style={{ padding: '2rem' }}>
-      <Badge>Draft</Badge>
-    </div>
+    <Badge>Draft</Badge>
   ))
   .add('warning', () => (
-    <div style={{ padding: '2rem' }}>
-      <Badge type="warning">Submitted</Badge>
-    </div>
+    <Badge type="warning">Submitted</Badge>
   ))
   .add('danger', () => (
-    <div style={{ padding: '2rem' }}>
-      <Badge type="danger">Rejected</Badge>
-    </div>
+    <Badge type="danger">Rejected</Badge>
   ))
   .add('success', () => (
-    <div style={{ padding: '2rem' }}>
-      <Badge type="success">Approved</Badge>
-    </div>
+    <Badge type="success">Approved</Badge>
   ));
