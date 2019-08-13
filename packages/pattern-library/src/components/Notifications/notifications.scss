@@ -1,0 +1,50 @@
+@import '~Styles/utilities/ms';
+
+.list {
+  list-style: none;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: ms(0);
+}
+
+.item {
+  &:not(:first-child) {
+    border-top: 1px solid var(--t-keyline);
+  }
+}
+
+.item--warning {
+  --n-icon-fill: var(--t-warning);
+}
+
+.item--danger {
+  --n-icon-fill: var(--t-danger);
+}
+
+.item--success {
+  --n-icon-fill: var(--t-success);
+}
+
+.icon {
+  --icon-fill: var(--n-icon-fill);
+  flex: 0 0 auto;
+  line-height: 1.4rem;
+  margin-right: ms(0);
+  margin-top: ms(-14);
+}
+
+.message {
+  flex-grow: 1;
+}
+
+.more {
+  display: block;
+  padding: ms(0);
+  background-color: var(--t-brand-primary-10);
+  text-align: center;
+}
