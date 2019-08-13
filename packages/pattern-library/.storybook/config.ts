@@ -1,8 +1,10 @@
 import { addParameters, addDecorator, configure } from '@storybook/react';
-import PaddingDecorator from './decorators/PaddingDecorator';
+import { addReadme } from 'storybook-readme';
 import lmeTheme from './lme-theme';
 // Global styles
 import './../src/styles/styles.scss';
+
+addDecorator(addReadme);
 
 addParameters({
   options: {
