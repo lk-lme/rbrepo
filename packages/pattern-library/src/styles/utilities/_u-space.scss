@@ -1,4 +1,12 @@
-@mixin u-space($value, $context: 0, $padding: false) {
+/**
+ * A utility spacing mixin that adds equal spacing horizonally
+ * and vertically between children.
+ */
+@mixin u-space(
+  $value, // The amount of spacing
+  $context: 0, // If you have applied u-space to the parent, pass in the value you used here
+  $padding: false // Use margin instead of padding for element spacing
+) {
   $offset: $value;
 
   @if ($context == $value) {
