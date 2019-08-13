@@ -4,9 +4,13 @@ import styles from './badge.scss';
 
 const Badge: React.FunctionComponent<Props> = ({ children, type }) => (
   <span
-    className={cx(styles.badge, {
-      [styles[`badge--${type}`]]: type,
-    })}
+    className={cx(
+      styles.badge, 
+      type === 'success' && styles['badge--success'],
+      type === 'primary' && styles['badge--primary'],
+      type === 'danger' && styles['badge--danger'],
+      type === 'warning' && styles['badge--warning'],
+    )}
   >
     {children}
   </span>
@@ -15,7 +19,7 @@ const Badge: React.FunctionComponent<Props> = ({ children, type }) => (
 type Type = 'success'|'primary'|'danger'|'warning';
 
 export interface Props {
-  type: Type;
+  type?: Type;
 }
 
 export default Badge;
