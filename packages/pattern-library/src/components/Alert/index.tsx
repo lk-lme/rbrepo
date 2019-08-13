@@ -1,19 +1,18 @@
 import React from 'react';
 import cx from 'classnames';
-import Heading from './../Heading';
-import Icon from './../Icon';
-import AlertCircleIcon from './../../svg/alert-circle.svg';
-import CircleTickIcon from './../../svg/circle-tick.svg';
-import InfoIcon from './../../svg/info.svg';
-import CancelIcon from './../../svg/cancel.svg';
-import Button, { Props as ButtonProps } from './../Button';
+import Heading from 'Components/Heading';
+import Icon from 'Components/Icon';
+import AlertCircleIcon from 'SVG/alert-circle.svg';
+import InfoIcon from 'SVG/info.svg';
+import CancelIcon from 'SVG/cancel.svg';
+import Button, { Props as ButtonProps } from 'Components/Button';
 import styles from './alert.scss';
 
-const iconMap: { [key in AlertType]: React.ComponentType } = {
+export const iconMap: { [key in AlertType]: React.ComponentType } = {
   neutral: InfoIcon,
   warning: AlertCircleIcon,
   danger: AlertCircleIcon,
-  success: CircleTickIcon,
+  success: AlertCircleIcon,
 };
 
 const Alert: React.FunctionComponent<Props> = ({
@@ -69,7 +68,7 @@ const Alert: React.FunctionComponent<Props> = ({
   );
 };
 
-type AlertType = 'success' | 'neutral' | 'warning' | 'danger';
+export type AlertType = 'success' | 'neutral' | 'warning' | 'danger';
 
 interface Props {
   title: string;
