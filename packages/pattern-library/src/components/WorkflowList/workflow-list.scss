@@ -1,0 +1,120 @@
+@import '~Styles/utilities/ms';
+@import '~Styles/utilities/u-space';
+
+$workflow-bp: 45em;
+$workflow-dot-size: 12px;
+$workflow-dot-margin: ms(0);
+
+.list {
+  list-style: none;
+}
+
+.list__item {
+  &:not(:first-child) {
+    margin-top: ms(8);
+  }
+}
+
+.step {
+  --step-bg: transparent;
+  --step-dot-bg: var(--t-brand-primary);
+  --step-status-color: var(--t-brand-primary-60);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &:not(.step--sub) {
+    @include u-space(ms(-12), 0, true);
+  }
+}
+
+.step--danger {
+  --step-bg: #fef1f2;
+  --step-dot-bg: var(--t-danger);
+  --step-status-color: var(--t-danger);
+}
+
+.step--success {
+  --step-dot-bg: var(--t-success);
+  --step-status-color: var(--t-success);
+}
+
+.step--sub {
+  $stepOffset: ms(12);
+  padding-top: ms(3);
+  padding-bottom: ms(3);
+  background-image: linear-gradient(to right, var(--step-bg), var(--step-bg) 0);
+  background-repeat: no-repeat;
+
+  @media (min-width: $workflow-bp) {
+    background-position: ($stepOffset - ms(0)) 0, ($stepOffset - ms(0)) 0;
+  }
+
+  &:not(:first-child) {
+    background-image: 
+      linear-gradient(to bottom, var(--t-keyline) 1px, transparent 0),
+      linear-gradient(to right, var(--step-bg), var(--step-bg) 0);
+  }
+
+  .step__heading {
+    display: flex;
+    align-items: center;
+    font-size: ms(0);
+
+    @media (min-width: $workflow-bp) {
+      padding-left: $stepOffset;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--step-dot-bg);
+      margin-right: $workflow-dot-margin;
+    }
+  }
+
+  .step__deadline,
+  .step__status {
+    margin-left: calc(#{$workflow-dot-size} + #{$workflow-dot-margin});
+
+    @media (min-width: $workflow-bp) {
+      margin-left: 0;
+    }
+  }
+}
+
+
+.step__heading {
+  @media (min-width: $workflow-bp) {
+    width: 70%;
+  }
+}
+
+.step__deadline {
+  width: 100%;
+
+  @media (min-width: $workflow-bp) {
+    width: 20%;
+  }
+}
+
+.step__status {
+  width: 100%;
+  color: var(--step-status-color);
+  text-align: left;
+
+  @media (min-width: $workflow-bp) {
+    width: 10%;
+    text-align: right;
+    margin-left: 0;
+  }
+}
+
+.substep {
+  margin-top: ms(3);
+}
+
+
