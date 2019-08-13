@@ -1,4 +1,5 @@
-@import './../../styles/utilities/ms';
+@import '~Styles/utilities/ms';
+@import '~Styles/utilities/u-space';
 
 .btn {
   --btn-color: #fff;
@@ -18,6 +19,8 @@
   border-radius: 3px;
   padding: var(--btn-padding);
   transition: all 0.1s;
+  display: flex;
+  align-items: center;
 
   &:hover:not(:disabled) {
     color: var(--btn-hover-color);
