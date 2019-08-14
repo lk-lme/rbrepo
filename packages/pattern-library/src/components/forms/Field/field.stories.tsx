@@ -1,24 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 import MultipleChoiceInput from 'Components/forms/MultipleChoiceInput';
+import { TextInput } from 'Components/forms/TextInput';
 import Field from '.';
 
 storiesOf('Forms/Field', module)
-  .add('Base', () => (
-    <Field
-      name="email"
-      label="Email address"
-    >
-      <input type="text" name="email" id="email" />
-    </Field>
-  ))
+  .addDecorator(PaddingDecorator({ withBG: true }))
   .add('With hint', () => (
     <Field
       name="password"
       label="Password"
       hint="Must contain 8+ characters with at least 1 number and 1 uppercase letter."
     >
-      <input type="password" name="password" id="password" />
+      <TextInput type="password" />
     </Field>
   ))
   .add('With error', () => (
@@ -28,7 +23,7 @@ storiesOf('Forms/Field', module)
       hint="Must contain 8+ characters with at least 1 number and 1 uppercase letter."
       errors={['Must contain a number.', 'Must contain an uppercase letter.']}
     >
-      <input type="password" name="password" id="password" value="mygreattestpass" />
+      <TextInput type="password" />
     </Field>
   ))
   .add('With multiple inputs', () => (

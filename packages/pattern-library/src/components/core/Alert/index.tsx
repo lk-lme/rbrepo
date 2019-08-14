@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Heading from 'Components/core/Heading';
 import Icon from 'Components/core/Icon';
 import AlertCircleIcon from 'SVG/alert-circle.svg';
+import TickCircleIcon from 'SVG/circle-tick.svg';
 import Button, { Props as ButtonProps } from 'Components/core/Button';
 import InfoIcon from 'SVG/info.svg';
 import CancelIcon from 'SVG/cancel.svg';
@@ -12,7 +13,7 @@ export const iconMap: { [key in AlertType]: React.ComponentType } = {
   neutral: InfoIcon,
   warning: AlertCircleIcon,
   danger: AlertCircleIcon,
-  success: AlertCircleIcon,
+  success: TickCircleIcon,
 };
 
 const Alert: React.FunctionComponent<Props> = ({

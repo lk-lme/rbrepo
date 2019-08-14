@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import * as R from 'ramda';
-import { compose, setStatic, withHandlers, mapProps } from 'recompose';
+import { compose, setStatic, withHandlers, withProps, mapProps } from 'recompose';
 import cx from 'classnames';
 import keycode from 'keycode';
 import Downshift, { DownshiftProps } from 'downshift';
@@ -16,6 +16,7 @@ export const Select: React.FunctionComponent<Props> = ({
   items,
   placeholder,
   onChange,
+  selectedItem,
   inputValue,
   handleInputChange,
   onSelect,
@@ -31,6 +32,7 @@ export const Select: React.FunctionComponent<Props> = ({
       onSelect={onSelect}
       itemToString={item => (item ? item.label : '')}
       inputValue={inputValue}
+      selectedItem={selectedItem}
       onStateChange={onStateChange}
     >
       {({
@@ -151,4 +153,7 @@ export default compose(
     },
   }),
   mapProps(R.omit(['setFieldValue'])),
+  withProps(({ items, value }) => ({
+    selectedItem: R.find(R.propEq('value', value))(items)
+  })),
 )(Select);

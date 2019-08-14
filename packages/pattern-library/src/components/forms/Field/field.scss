@@ -10,7 +10,7 @@
   background-color: var(--wrapper-bg);
 
   + .wrapper {
-    padding-top: ms(6);
+    padding-top: ms(8);
   }
 
   .wrapper {
@@ -31,23 +31,23 @@
 }
 
 .header {
-  margin-bottom: ms(-4);
+  margin-bottom: ms(-2);
 }
 
 .label {
   display: block;
-  font-size: $fs-sm;
+  font-size: $fs-caption;
   color: var(--t-brand-primary);
-  margin-bottom: inherit;
+  margin-bottom: ms(-16);
 }
 
 .hint {
-  font-size: $fs-sm;
+  font-size: $fs-caption;
 }
 
 .errors {
   color: var(--t-danger);
   display: block;
-  font-size: $fs-sm;
+  font-size: $fs-caption;
   margin-top: ms(-4);
 }

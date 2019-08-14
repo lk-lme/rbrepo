@@ -1,39 +1,41 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import PageHeader from '.';
 import Link from 'Components/core/Link';
 
-storiesOf('Core/PageHeader', module)
+storiesOf('Core/Navigation/Page Header', module)
+  .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
   .add('Base', () => (
     <PageHeader
-      title="Contract: AH Future"
+      title={text('Title', 'Contract: AH Future')}
     />
   ))
   .add('With info text', () => (
     <PageHeader
-      title="Contract: AH Future"
+      title={text('Title', 'Contract: AH Future')}
       infoText={(
-        <Link>View history</Link>
+        <Link>{text('Info text', 'View history')}</Link>
       )}
     />
   ))
   .add('With action', () => (
     <PageHeader
-      title="Contract: AH Future"
-      actions={[ { title: 'Clone' } ]}
+      title={text('Title', 'Contract: AH Future')}
+      actions={[ { title: text('Action label', 'Clone') } ]}
     />
   ))
   .add('With badge', () => (
     <PageHeader
-      title="Contract: AH Future"
-      badges={[{ title: 'In review', type: 'warning' }]}
+      title={text('Title', 'Contract: AH Future')}
+      badges={[{ title: text('Badge label', 'In review'), type: 'warning' }]}
     />
   ))
   .add('With badge, actions and info', () => (
     <PageHeader
-      title="Contract: AH Future"
+      title={text('Title', 'Contract: AH Future')}
       badges={[{ title: 'Draft', type: 'primary' }]}
       actions={[
         {
@@ -54,7 +56,7 @@ storiesOf('Core/PageHeader', module)
   ))
   .add('Stress test', () => (
     <PageHeader
-      title="Contract: AH Future Contract AH Future"
+      title={text('Title', 'Contract: AH Future Contract AH Future')}
       badges={[
         { title: 'Draft', type: 'primary' },
         { title: 'Secondary', type: 'warning' },

@@ -6,8 +6,8 @@
   --badge-background-color: grey;
   display: inline-block;
   color: var(--text-color);
-  font-size: $fs-sm;
-  padding: ms(-12, $thread: em) ms(0, $thread: em);
+  font-size: $fs-caption;
+  padding: 0 ms(0, $thread: em);
   background-color: var(--badge-background-color);
   letter-spacing: 1px;
   border-radius: 999px;

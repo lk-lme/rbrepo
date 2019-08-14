@@ -44,7 +44,7 @@
 .section--date {
   min-width: 20%;
   flex-basis: calc((var(--section-bp) - 100%) * 999);
-  font-size: $fs-sm;
+  font-size: $fs-caption;
 }
 
 .section--actions {
@@ -52,7 +52,7 @@
 }
 
 .title {
-  font-size: $fs-base;
+  font-size: $fs-body;
   font-weight: 700;
 
   > a {

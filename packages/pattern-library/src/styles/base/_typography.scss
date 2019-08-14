@@ -1,12 +1,12 @@
-$rfs-base-font-size: 1rem;
+$rfs-body-font-size: 1rem;
 @import '~rfs/scss';
 @import './../tokens/typography';
 
 body {
-  @include font-size($fs-base);
+  @include font-size($fs-body);
   --text-color: var(--t-base);
   --link-color: var(--t-brand-primary);
-  --text-muted-color: var(--t-muted);
+  --text-muted-color: var(--t-brand-primary-70);
   color: var(--text-color);
   font-family: Arial, sans-serif;
   line-height: $base-line-height;

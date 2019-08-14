@@ -1,27 +1,51 @@
 import React from 'react';
+import * as R from 'ramda';
+import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { storiesOf } from '@storybook/react';
 import Nav from '.';
 
-storiesOf('Core/Nav', module)
-  .add('Base', () => (
-    <Nav
-      activeID="navtwo"
-      links={[
-        {
-          id: 'contracts',
-          url: '#',
-          title: 'Contracts',
-        },
-        {
-          id: 'navtwo',
-          url: '#',
-          title: 'Nav item two',
-        },
-        {
-          id: 'navthree',
-          url: '#',
-          title: 'Nav item three',
-        },
-      ]}
-    />
-  ));
+const navItems = [
+  {
+    id: 'dashboard',
+    title: 'Dashboard',
+    url: '#',
+  },
+  {
+    id: 'contracts',
+    title: 'Contracts',
+    url: '#',
+  },
+  {
+    id: 'participants',
+    title: 'Participants',
+    url: '#',
+  },
+  {
+    id: 'instruments',
+    title: 'Instruments',
+    url: '#',
+  },
+  {
+    id: 'admin',
+    title: 'Admin',
+  },
+];
+
+const getNavOptions = () =>
+  options(
+    'Active item',
+    R.pipe(
+      R.indexBy(R.prop('title')),
+      R.map(R.prop('id')),
+    )(navItems),
+    'contracts',
+    {
+      display: 'select',
+    },
+  );
+
+storiesOf('Core/Navigation/Nav', module)
+  .addDecorator(withKnobs)
+  .addDecorator(PaddingDecorator())
+  .add('Base', () => <Nav activeID={getNavOptions()} links={navItems} />);

@@ -1,47 +1,46 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { Checkbox } from '.';
 import Stack from 'Components/core/Stack';
 
 storiesOf('Forms/Multiple Choice/Checkbox', module)
-  .add('un-checked', () => (
+  .addDecorator(withKnobs)
+  .addDecorator(PaddingDecorator())
+  .add('Base', () => (
     <Checkbox
-      label="Accept terms"
+      checked={boolean('Checked', false)}
+      label={text('Label', 'Accept terms')}
+      onChange={action('Fired onChange')}
     />
   ))
-  .add('checked', () => (
-    <Checkbox
-      checked
-      label="Accept terms"
-    />
-  ))
-  .add('chip un-checked', () => (
+  .add('Chip', () => (
     <Checkbox
       chip
-      label="Accept terms"
+      checked={boolean('Checked', false)}
+      label={text('Label', 'Accept terms')}
+      onChange={action('Fired onChange')}
     />
   ))
-  .add('chip checked', () => (
-    <Checkbox
-      chip
-      checked
-      label="Accept terms"
-    />
-  ))
-  .add('stacked chips', () => (
+  .add('Stacked chips', () => (
     <Stack>
       <Checkbox
         chip
-        label="Accept terms"
+        label="Bronze"
+        onChange={action('Fired onChange')}
       />
       <Checkbox
         chip
         checked
-        label="Accept terms"
+        label="Silver"
+        onChange={action('Fired onChange')}
       />
       <Checkbox
         chip
-        label="Accept terms"
+        label="Gold"
+        onChange={action('Fired onChange')}
       />
     </Stack>
   ));

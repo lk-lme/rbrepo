@@ -11,7 +11,12 @@ storiesOf('Core/Notifications', module)
         items={[
           {
             id: faker.random.uuid(),
-            type: 'success',
+            type: 'neutral',
+            message: faker.lorem.lines(1),
+          },
+          {
+            id: faker.random.uuid(),
+            type: 'warning',
             message: faker.lorem.lines(1),
           },
           {

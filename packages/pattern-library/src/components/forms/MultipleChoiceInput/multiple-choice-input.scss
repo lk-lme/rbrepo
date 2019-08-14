@@ -5,7 +5,7 @@
 
   &:focus-within .control,
   &.wrapper--chip:focus-within .label {
-    box-shadow: 
+    box-shadow:
       0 0 0 2px #fff,
       0 0 0 3px var(--t-brand-primary);
   }
@@ -46,12 +46,12 @@
 
 .input:checked {
   ~ .label {
-    --chip-bg: var(--t-brand-primary); 
+    --chip-bg: var(--t-brand-primary-70);
     --chip-color: #fff;
   }
 
   ~ .control {
-    --check-display: block; 
+    --check-display: block;
   }
 }
 
@@ -64,6 +64,7 @@
   align-items: center;
   justify-content: center;
   margin-right: ms(-4);
+  margin-top: ms(-14);
 }
 
 .icon {

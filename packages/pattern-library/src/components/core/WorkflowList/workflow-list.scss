@@ -1,5 +1,6 @@
 @import '~Styles/utilities/ms';
 @import '~Styles/utilities/u-space';
+@import '~Styles/tokens/typography';
 
 $workflow-bp: 45em;
 $workflow-dot-size: 12px;
@@ -51,7 +52,7 @@ $workflow-dot-margin: ms(0);
   }
 
   &:not(:first-child) {
-    background-image: 
+    background-image:
       linear-gradient(to bottom, var(--t-keyline) 1px, transparent 0),
       linear-gradient(to right, var(--step-bg), var(--step-bg) 0);
   }
@@ -59,7 +60,7 @@ $workflow-dot-margin: ms(0);
   .step__heading {
     display: flex;
     align-items: center;
-    font-size: ms(0);
+    font-size: $fs-caption;
 
     @media (min-width: $workflow-bp) {
       padding-left: $stepOffset;
@@ -88,6 +89,8 @@ $workflow-dot-margin: ms(0);
 
 
 .step__heading {
+  font-size: $fs-display-sm;
+
   @media (min-width: $workflow-bp) {
     width: 70%;
   }
@@ -95,6 +98,7 @@ $workflow-dot-margin: ms(0);
 
 .step__deadline {
   width: 100%;
+  font-size: $fs-caption;
 
   @media (min-width: $workflow-bp) {
     width: 20%;
@@ -105,6 +109,7 @@ $workflow-dot-margin: ms(0);
   width: 100%;
   color: var(--step-status-color);
   text-align: left;
+  font-size: $fs-caption;
 
   @media (min-width: $workflow-bp) {
     width: 10%;

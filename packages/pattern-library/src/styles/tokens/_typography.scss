@@ -1,7 +1,8 @@
 @import '~Styles/utilities/ms';
 
-$fs-sm: ms(-2);
-$fs-base: ms(0);
-$fs-md: ms(3);
-$fs-lg: ms(8);
-$base-line-height: ms(3, $thread: unitless);
+$fs-body: ms(0);
+$fs-caption: ms(-1);
+$fs-display-sm: ms(2);
+$fs-display-md: ms(5);
+$fs-display-lg: ms(6);
+$base-line-height: ms(5, $thread: unitless);
