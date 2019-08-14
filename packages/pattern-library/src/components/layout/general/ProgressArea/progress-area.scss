@@ -1,0 +1,31 @@
+@import '~Styles/utilities/ms';
+
+$form-bp: 50em;
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $form-bp) {
+    grid-template-columns: 15rem 1fr;
+  }
+}
+
+.form__steps {
+  margin-bottom: ms(5);
+  padding-bottom: ms(5);
+  border-bottom: 1px solid var(--t-keyline);
+
+  @media (min-width: $form-bp) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--t-keyline);
+  }
+}
+
+.form__content {
+  @media (min-width: $form-bp) {
+    padding-left: 4rem;
+  }
+}

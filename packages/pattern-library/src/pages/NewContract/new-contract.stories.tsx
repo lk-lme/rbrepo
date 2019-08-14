@@ -1,15 +1,16 @@
 import React from 'react';
+import faker from 'faker';
 import { storiesOf } from '@storybook/react';
-import Steps from 'Components/Steps';
-import styles from 'Components/Page/page.scss';
-import Heading from 'Components/Heading';
-import Section from 'Components/Section';
-import Prose from 'Components/Prose';
-import Form from 'Components/Form';
-import FormField from 'Components/FormField';
-import TextInput from 'Components/TextInput';
-import Checkbox from 'Components/Checkbox';
-import Button from 'Components/Button';
+import Steps from 'Components/core/Steps';
+import Heading from 'Components/core/Heading';
+import Section from 'Components/core/Section';
+import Prose from 'Components/core/Prose';
+import Form from 'Components/forms/Form';
+import Button from 'Components/core/Button';
+import FormField from 'Components/forms/FormField';
+import TextInput from 'Components/forms/TextInput';
+import Checkbox from 'Components/forms/Checkbox';
+import ProgressArea from 'Components/layout/general/ProgressArea';
 import Page from './components/Page';
 
 const venues = [
@@ -34,8 +35,8 @@ const venues = [
 storiesOf('Pages/New Contract', module)
   .add('Overview', () => (
     <Page>
-      <div className={styles.form}>
-        <div className={styles['form__steps']}>
+      <ProgressArea
+        sidebarComponent={
           <Steps
             activeID="venues"
             steps={[
@@ -67,30 +68,17 @@ storiesOf('Pages/New Contract', module)
               },
             ]}
           />
-        </div>
-        <div className={styles['form__content']}>
+        }
+        contentComponent={
           <Section>
             <Prose>
               <Heading>Trade venues</Heading>
               <p>
-                Pellentesque habitant morbi tristique senectus et netus et
-                malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-                vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-                amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em>{' '}
-                Mauris placerat eleifend leo. Quisque sit amet est et sapien
-                ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,{' '}
-                <code>commodo vitae</code>, ornare sit amet, wisi. Aenean
-                fermentum, elit eget tincidunt condimentum, eros ipsum rutrum
-                orci, sagittis tempus lacus enim ac dui.{' '}
-                <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut
-                felis.
+                {faker.lorem.paragraph(4)}
               </p>
             </Prose>
             <Form
-              initialValues={{
-                venues: [],
-              }}
-              validate={() => {}}
+              initialValues={{ venues: [] }}
               onSubmit={() => {}}
             >
               {({ values, handleSubmit }) => (
@@ -126,7 +114,7 @@ storiesOf('Pages/New Contract', module)
               )}
             </Form>
           </Section>
-        </div>
-      </div>
+        }
+      />
     </Page>
   ));

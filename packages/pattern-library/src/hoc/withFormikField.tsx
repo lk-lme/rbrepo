@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormFieldContext } from '../components/FormField';
+import { useFormFieldContext } from 'Components/forms/FormField';
 
 const withFormikField = () =>
   function<T>(Component: React.ComponentType<T>) {

@@ -1,9 +1,9 @@
 import React from 'react';
-import Generic from 'Components/layouts/Generic';
-import Header from 'Components/Header';
-import Nav from 'Components/Nav';
-import Link from 'Components/Link';
-import PageHeader from 'Components/PageHeader';
+import Generic from 'Components/layout/page/Generic';
+import Header from 'Components/core/Header';
+import Nav from 'Components/core/Nav';
+import Link from 'Components/core/Link';
+import PageHeader from 'Components/core/PageHeader';
 
 const Page: React.FunctionComponent = ({ children }) => (
   <Generic

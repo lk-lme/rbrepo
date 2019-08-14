@@ -1,0 +1,24 @@
+@import '~Styles/utilities/ms';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sub-header {
+  border-bottom: 1px solid var(--t-keyline);
+}
+
+.page-header {
+  padding: ms(6) ms(0);
+}
+
+.main {
+  background-color: rgba(19, 66, 107, 0.05);
+  flex: 1 0 auto;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: ms(11) ms(8);
+  display: flex;
+}

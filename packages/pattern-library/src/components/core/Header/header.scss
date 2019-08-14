@@ -1,0 +1,147 @@
+@import '~Styles/utilities/ms';
+
+$header-bp: 40em;
+
+.header {
+  --text-color: #fff;
+  --link-color: var(--text-color);
+  display: flex;
+  background-color: var(--t-brand-primary);
+  min-height: ms(12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--site-padding);
+}
+
+.logo {
+  height: ms(8);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 var(--site-padding);
+  max-width: 16rem;
+}
+
+.profile__name {
+  display: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: $header-bp) {
+    display: block;
+  }
+}
+
+.profile__image {
+  width: ms(6);
+  height: ms(6);
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  @media (min-width: $header-bp) {
+    margin-right: ms(0);
+  }
+}
+
+.search,
+.search__field {
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: $header-bp) {
+    max-width: 23.75rem;
+  }
+}
+
+.search,
+.search__field,
+.search__input {
+  flex-grow: 1;
+}
+
+.search {
+  --search-icon-size: #{ms(2)};
+  --search-field-padding: #{ms(2)};
+  --search-btn-width: calc(var(--search-icon-size) + (var(--search-field-padding) * 2));
+  margin-right: auto;
+}
+
+.search__field {
+  position: relative;
+}
+
+.search__input {
+  border: 0;
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.18);
+  padding: var(--search-field-padding) var(--search-btn-width) var(--search-field-padding) var(--search-field-padding);
+  width: 100%;
+
+  &:focus {
+    outline: 2px solid #fff;
+  }
+
+  &::placeholder {
+    color: var(--text-color);
+  }
+}
+
+.search__icon {
+  width: var(--search-icon-size);
+  height: var(--search-icon-size);
+}
+
+.search__btn,
+.header a {
+  &:focus {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+  }
+}
+
+.search__btn {
+  width: var(--search-btn-width);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.secondary-action {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: ms(-6);
+  }
+}
+
+.secondary-action--has-unread {
+  position: relative;
+
+  &:after {
+    content: '';
+    // Avoid rounding issues
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: block;
+    background-color: var(--t-brand-accent);
+    position: absolute;
+    right: -0.3em;
+    top: -0.3em;
+  }
+}

@@ -1,23 +1,12 @@
 import React from 'react';
 import faker from 'faker';
 import { storiesOf } from '@storybook/react';
-import Header from '../../components/Header';
-import Nav from '../../components/Nav';
-import Steps from '../../components/Steps';
-import PageHeader from '../../components/PageHeader';
-import styles from '../../components/Page/page.scss';
-import Heading from '../../components/Heading';
-import Section from '../../components/Section';
-import SummaryItem from 'Components/SummaryItem';
-import SummaryList from 'Components/SummaryList';
-import Generic from '../../components/layouts/Generic';
-import Prose from '../../components/Prose';
-import Form from '../../components/Form';
-import FormField from '../../components/FormField';
-import TextInput from '../../components/TextInput';
-import Button from '../../components/Button';
-import Stack from '../../components/Stack';
-import view from 'ramda/es/view';
+import Header from 'Components/core/Header';
+import Nav from 'Components/core/Nav';
+import PageHeader from 'Components/core/PageHeader';
+import SummaryItem from 'Components/core/SummaryItem';
+import SummaryList from 'Components/layout/general/SummaryList';
+import Generic from 'Components/layout/page/Generic';
 
 storiesOf('Pages', module).add('Contract list', () => (
   <Generic
