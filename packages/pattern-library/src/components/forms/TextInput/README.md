@@ -1,7 +1,9 @@
 # Text Input
 
-A plain text input that can also be used for:
+A plain text input that can also be used for a:
 
-- passwords
-- passwords
-- telephone numbers
+- Password
+- Number
+- Date/time
+- Telephone number
+- Email address
