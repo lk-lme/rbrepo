@@ -98,8 +98,6 @@ const SelectRepeater: React.FunctionComponent<Props> = ({
 
           if (!selectedItem) return;
 
-          console.log('fired render');
-
           return (
             <fieldset key={selected} className={styles.item}>
               <div className={styles['item__header']}>
