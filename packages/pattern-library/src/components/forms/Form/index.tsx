@@ -6,7 +6,6 @@ import {
   FormikConfig,
   FormikActions,
 } from 'formik';
-import FormErrors from 'Components/forms/FormErrors';
 import noop from 'Utils/noop';
 
 const Form: React.FunctionComponent<FormikConfig<{}>> = ({ children, initialValues, ...props }) => {
