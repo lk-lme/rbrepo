@@ -20,7 +20,7 @@
   border: 0;
   border-left: 3px solid var(--t-brand-primary);
   padding: ms(0);
-  margin-top: ms(0);
+  margin-top: ms(6);
 }
 
 .item__header {
@@ -30,7 +30,7 @@
 }
 
 .item__label {
-  font-size: $fs-display-md;
+  font-size: $fs-display-sm;
   margin-right: auto;
 }
 

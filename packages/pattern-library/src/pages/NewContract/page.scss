@@ -1,0 +1,22 @@
+@import '~Styles/utilities/ms';
+@import '~Styles/tokens/typography';
+
+.intro {
+  margin-bottom: ms(10);
+}
+
+.fieldset {
+  border: 0;
+  padding-left: ms(6);
+
+  + .fieldset {
+    margin-top: ms(10);
+  }
+}
+
+.legend {
+  font-size: $fs-display-sm;
+  margin-bottom: ms(0);
+  margin-left: ms(6) * -1;
+}
+

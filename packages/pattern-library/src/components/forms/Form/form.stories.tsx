@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import FormField from 'Components/forms/FormField';
+import NestedSet from 'Components/forms/NestedSet';
 import Form from 'Components/forms/Form';
-import SelectRepeater from 'Components/forms/SelectRepeater';
 import TextInput from 'Components/forms/TextInput';
 import Radio from 'Components/forms/Radio';
 import Checkbox from 'Components/forms/Checkbox';
@@ -100,27 +100,18 @@ storiesOf('Forms/Form', module)
             <Checkbox label="Bronze" value="bronze" />
             {// @ts-ignore
             values.metal && values.metal.includes('bronze') && (
-              <>
+              <NestedSet>
                 <FormField name="bronze-min-lot" label="Min lot">
                   <TextInput type="text" />
                 </FormField>
                 <FormField name="bronze-max-lot" label="Max lot">
                   <TextInput type="text" />
                 </FormField>
-              </>
+              </NestedSet>
             )}
             <Checkbox label="Silver" value="silver" />
             <Checkbox label="Gold" value="gold" />
           </FormField>
-
-          {
-            // // @ts-ignore
-            // values.metal && values.metal.includes('bronze') && (
-            //   <FormField name="bronze-details" label="Bronze details">
-            //     <TextInput type="text" />
-            //   </FormField>
-            // )
-          }
 
           <FormField name="timeframe" label="Select your timeframe">
             <Radio label="Six months" value="6m" />
@@ -132,49 +123,6 @@ storiesOf('Forms/Form', module)
             <TextInput type="password" />
           </FormField>
 
-          <Button>Submit</Button>
-        </form>
-      )}
-    </Form>
-  ))
-  .add('currency', () => (
-    <Form
-      initialValues={{}}
-      validate={values => {}}
-      onSubmit={(values, x) => {
-        console.log(values);
-      }}
-    >
-      {({ handleSubmit, values }) => (
-        <form onSubmit={handleSubmit}>
-          <SelectRepeater
-            name="currencies"
-            requiresPrimary
-            initialValues={['GBP', 'USD']}
-            values={[
-              {
-                label: 'Great British Pound (£)',
-                value: 'GBP',
-              },
-              {
-                label: 'US Dollar ($)',
-                value: 'USD',
-              },
-              {
-                label: 'Euro (€)',
-                value: 'EUR',
-              },
-            ]}
-            renderFields={({ value }) => (
-              <FormField
-                name={`currencies-${value}-tradable`}
-                label="Tradeable"
-              >
-                <Radio label="Yes" value="true" />
-                <Radio label="No" value="false" />
-              </FormField>
-            )}
-          />
           <Button>Submit</Button>
         </form>
       )}

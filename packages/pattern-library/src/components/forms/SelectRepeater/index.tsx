@@ -63,7 +63,7 @@ const SelectRepeater: React.FunctionComponent<Props> = ({
           setInputValue('');
         }}
       >
-        {({ setFieldValue, submitForm }) =>
+        {({ submitForm }) =>
           allAreSelected ? (
             <div>
               <FormField
@@ -98,6 +98,8 @@ const SelectRepeater: React.FunctionComponent<Props> = ({
 
           if (!selectedItem) return;
 
+          console.log('fired render');
+
           return (
             <fieldset key={selected} className={styles.item}>
               <div className={styles['item__header']}>
@@ -108,8 +110,8 @@ const SelectRepeater: React.FunctionComponent<Props> = ({
                   <FormField name={`${name}-primary`}>
                     <Radio
                       label="Primary"
-                      value={selected}
                       className={styles['primary-toggle']}
+                      checked={selected}
                     />
                   </FormField>
                 )}

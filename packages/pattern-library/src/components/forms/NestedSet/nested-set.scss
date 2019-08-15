@@ -1,0 +1,8 @@
+@import '~Styles/utilities/ms';
+
+.wrapper {
+  border: 0;
+  border-left: 2px solid var(--t-brand-primary);
+  padding: (ms(6) / 2) ms(0);
+  margin: ms(-4) 0 ms(-4) ms(6) ;
+}

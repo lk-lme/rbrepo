@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as R from 'ramda';
 import { render, getByTestId, fireEvent } from '@testing-library/react';
-import Form from '.';
-import FormField from './../FormField';
-import TextInput from './../TextInput';
-import Button from './../Button';
-import wait from './../../utils/wait';
+import Form from 'Components/forms/Form';
+import FormField from 'Components/forms/FormField';
+import TextInput from 'Components/forms/TextInput';
+import Button from 'Components/core/Button';
+import wait from 'Utils/wait';
 
 /**
  * Helper for submitting a form and getting the results back.

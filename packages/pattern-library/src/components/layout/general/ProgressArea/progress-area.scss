@@ -25,6 +25,8 @@ $form-bp: 50em;
 }
 
 .form__content {
+  max-width: 55rem;
+
   @media (min-width: $form-bp) {
     padding-left: 4rem;
   }

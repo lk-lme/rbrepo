@@ -1,0 +1,14 @@
+@import '~Styles/utilities/ms';
+@import '~Styles/tokens/typography';
+
+.wrapper {
+  margin-top: ms(10);
+}
+
+.status {
+  display: block;
+  font-size: $fs-caption;
+  color: var(--t-brand-primary-70);
+  margin-bottom: ms(-4);
+}
+
