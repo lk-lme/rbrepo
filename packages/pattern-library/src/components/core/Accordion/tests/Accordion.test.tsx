@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import StepByStep from '../index';
+import Accordion from '../index';
 
 const steps = [
   {
@@ -24,7 +24,7 @@ describe('<StepByStep />', () => {
   it('toggles description when clicked', () => {
     const { title, description } = steps[0];
     const { queryByText } = render(
-      <StepByStep steps={steps} />,
+      <Accordion steps={steps} />,
     );
 
     // Should be hidden initially
@@ -40,12 +40,12 @@ describe('<StepByStep />', () => {
     // Should be hidden again after a second click
     expect(queryByText(description)).toBeNull();
   });
-  
+
   it('closes other panels when one opens', () => {
     const { title, description } = steps[0];
     const { title: titleTwo } = steps[1];
     const { queryByText } = render(
-      <StepByStep steps={steps} />,
+      <Accordion steps={steps} />,
     );
 
     fireEvent.click(queryByText(title) as HTMLElement);
@@ -59,7 +59,7 @@ describe('<StepByStep />', () => {
     const { title, description } = steps[0];
     const { title: titleTwo } = steps[1];
     const { queryByText } = render(
-      <StepByStep allowMultiple steps={steps} />,
+      <Accordion allowMultiple steps={steps} />,
     );
 
     fireEvent.click(queryByText(title) as HTMLElement);
@@ -76,7 +76,7 @@ describe('<StepByStep />', () => {
       .map(({ id }) => id);
 
     const { queryByText } = render(
-      <StepByStep defaultOpen={visibleSteps} steps={steps} />,
+      <Accordion defaultOpen={visibleSteps} steps={steps} />,
     );
 
     expect(queryByText(steps[0].description)).toBeNull();
