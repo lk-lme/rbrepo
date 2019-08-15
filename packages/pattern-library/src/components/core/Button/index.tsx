@@ -4,8 +4,8 @@ import buttonStyles from './button.scss';
 
 const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>> = ({
   url,
-  variety,
-  size,
+  variety = 'primary',
+  size = 'md',
   disabled,
   children,
   className,
@@ -29,11 +29,6 @@ const Button: React.FunctionComponent<Props & React.ButtonHTMLAttributes<Props>>
       {children}
     </El>
   );
-};
-
-Button.defaultProps = {
-  variety: 'primary',
-  size: 'md',
 };
 
 export type Variety = 'primary'|'secondary'|'outline'|'naked';

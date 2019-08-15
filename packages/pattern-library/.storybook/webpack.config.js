@@ -1,6 +1,5 @@
 const R = require('ramda');
 const path = require('path');
-const { TypedCssModulesPlugin } = require('typed-css-modules-webpack-plugin');
 
 module.exports = R.pipe(
   R.prop('config'),
@@ -46,14 +45,6 @@ module.exports = R.pipe(
           ],
         },
       ]),
-    ),
-  ),
-  R.over(
-    R.lensPath(['plugins']),
-    R.append(
-      new TypedCssModulesPlugin({
-        globPattern: 'src/**/*.scss',
-      }),
     ),
   ),
   R.over(
