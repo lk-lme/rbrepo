@@ -1,5 +1,5 @@
 import React from 'react';
-import Stack from 'Components/core/Stack';
+import Stack from 'Components/layout/Stack';
 import Time from 'Components/core/Time';
 import styles from './form-actions.scss';
 
@@ -19,7 +19,7 @@ const FormActions: React.FunctionComponent<Props> = ({ lastSaved, children }) =>
 );
 
 interface Props {
-  lastSaved: Date;
+  lastSaved?: Date;
 }
 
 export default FormActions;

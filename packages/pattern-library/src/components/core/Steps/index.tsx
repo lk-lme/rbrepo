@@ -4,26 +4,28 @@ import styles from './steps.scss';
 import Link from 'Components/core/Link';
 import Icon from 'Components/core/Icon';
 import CheckIcon from 'SVG/circle-tick.svg';
+import AlertCircleIcon from 'SVG/alert-circle.svg';
 
 const iconMap = {
   success: CheckIcon,
+  warning: AlertCircleIcon,
 };
 
 const Steps: React.FunctionComponent<Props> = ({ steps, activeID }) => (
   <ol className={styles.steps}>
-    {steps.map(({ id, title, status }) => (
+    {steps.map(({ id, title, link, status }) => (
       <li
+        key={id}
         className={cx(styles['steps__step'], {
           [styles['steps__step--success']]: status === 'success',
+          [styles['steps__step--warning']]: status === 'warning',
           [styles['steps__step--is-active']]: activeID === id,
         })}
       >
-        {/* @todo: add link href etc */}
-        <Link className={styles['steps__step-title']}>
+        <Link to={link} className={styles['steps__step-title']}>
           <span className={styles['steps__step-status']}>
             <span className={styles['steps__step-indicator']}>
               {(() => {
-                // @todo Refactor
                 const StatusIcon = iconMap[status];
                 if (!StatusIcon) return null;
                 return (
@@ -46,7 +48,7 @@ type StepType = {
   id: string;
   title: string;
   link: any;
-  status?: 'success' | 'neutral' | 'warning';
+  status?: 'success' | 'warning';
 };
 
 interface Props {

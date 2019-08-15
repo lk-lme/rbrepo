@@ -22,7 +22,7 @@ const Header: React.FunctionComponent<Props> = ({
   },
 }) => (
   <header className={styles.header}>
-    <Link className={styles.brand}>
+    <Link to="#" className={styles.brand}>
       <Logo className={styles.logo} />
       <span className={visuallyHidden['visually-hidden']}>LME CRD</span>
     </Link>
@@ -68,7 +68,7 @@ const Header: React.FunctionComponent<Props> = ({
       {notifications.items && <Notifications items={notifications.items} />}
     </HeaderDropdown>
     {user && (
-      <Link className={styles.profile}>
+      <Link to="#" className={styles.profile}>
         <img className={styles['profile__image']} src={user.avatar} alt="" />
         <span className={styles['profile__name']}>{user.name}</span>
       </Link>

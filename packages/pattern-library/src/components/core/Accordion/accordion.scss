@@ -1,0 +1,20 @@
+@import '~Styles/utilities/ms';
+@import '~Styles/tokens/typography';
+
+.accordion__title {
+  font-size: $fs-display-sm;
+}
+
+.accordion__toggle {
+  color: currentColor;
+  background-color: transparent;
+  border: 0;
+  padding: ms(0) 0;
+  width: 100%;
+}
+
+.accordion__list {
+  list-style: none;
+}
+
+.accordion__item {}

@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Section from 'Components/core/Section';
 import Heading from '.';
-import Readme from './README.md';
+import README from './README.md';
 
 const levels = {
   One: 1,
@@ -20,7 +20,7 @@ const levels = {
 storiesOf('Core/Typography/Heading', module)
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
-  .addParameters({ readme: { sidebar: Readme } })
+  .addParameters({ readme: { sidebar: README } })
   .add('Manual', () => (
     <Heading
       level={options(

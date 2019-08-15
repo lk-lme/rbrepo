@@ -2,8 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import WorkflowList from '.';
+import README from './README.md';
 
 storiesOf('Core/Workflow List', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(PaddingDecorator())
   .add('Base', () => (
     <WorkflowList

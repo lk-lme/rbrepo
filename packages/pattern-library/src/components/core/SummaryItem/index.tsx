@@ -33,7 +33,7 @@ const SummaryItem: React.FunctionComponent<Props> = ({
       </div>
       <div className={cx(styles.section, styles['section--title'])}>
         <Heading className={styles.title}>
-          {url ? <Link>{title}</Link> : title}
+          {url ? <Link to="#">{title}</Link> : title}
         </Heading>
       </div>
       <div className={cx(styles.section, styles['section--description'])}>
@@ -62,7 +62,7 @@ const SummaryItem: React.FunctionComponent<Props> = ({
               </>
             );
             if (!date.url) return dateTxt;
-            return <Link>{dateTxt}</Link>;
+            return <Link to="#">{dateTxt}</Link>;
           })()}
       </div>
       <div className={cx(styles.section, styles['section--actions'])}>

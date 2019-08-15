@@ -1,11 +1,35 @@
+@import '~Styles/utilities/ms';
+
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: #fff;
+}
+
+.list__item {
+  position: relative;
+
+  + .list__item {
+    margin-top: -1px;
+  }
 }
 
 .item {
   display: block;
   width: 100%;
   text-align: left;
+  border: 1px solid var(--t-keyline);
+  border-radius: 0;
+  position: relative;
+
+  &:focus {
+    box-shadow: none;
+    border-color: var(--t-brand-primary);
+    z-index: 2;
+  }
+
+  &:hover {
+    --btn-hover-td: none;
+  }
 }

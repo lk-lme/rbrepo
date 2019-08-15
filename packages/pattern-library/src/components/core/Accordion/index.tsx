@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from 'Components/core/Button';
-import Step, { Props as StepProps } from './Step';
+import AccordionSection, { Props as AccordionSectionProps } from './AccordionSection';
 import useAccordion, { Options as AccordionOptions } from 'Hooks/useAccordion';
-import styles from './step-by-step.scss';
+import styles from './accordion.scss';
 
 const StepByStep: React.FunctionComponent<Props> = ({
   steps,
@@ -18,10 +18,10 @@ const StepByStep: React.FunctionComponent<Props> = ({
   return (
     <>
       <Button onClick={toggleAll}>{allOpen ? 'Close All' : 'Show all'}</Button>
-      <ol>
+      <ol className={styles['accordion__list']}>
         {steps.map(({ id, title, description }) => (
-          <li className={styles['step-by-step__item']} key={id}>
-            <Step
+          <li className={styles['accordion__item']} key={id}>
+            <AccordionSection
               id={id}
               title={title}
               isOpen={isOpen(id)}
@@ -42,7 +42,7 @@ StepByStep.defaultProps = {
 interface Props {
   allowMultiple?: AccordionOptions['allowMultiple'];
   defaultOpen?: AccordionOptions['defaultOpen'];
-  steps: Pick<StepProps, 'id' | 'title' | 'description'>[];
+  steps: Pick<AccordionSectionProps, 'id' | 'title' | 'description'>[];
 }
 
 export default StepByStep;

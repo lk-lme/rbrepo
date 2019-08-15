@@ -4,10 +4,12 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import PageHeader from '.';
 import Link from 'Components/core/Link';
+import README from './README.md';
 
 storiesOf('Core/Navigation/Page Header', module)
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
+  .addParameters({ readme: { sidebar: README } })
   .add('Base', () => (
     <PageHeader
       title={text('Title', 'Contract: AH Future')}
@@ -17,7 +19,7 @@ storiesOf('Core/Navigation/Page Header', module)
     <PageHeader
       title={text('Title', 'Contract: AH Future')}
       infoText={(
-        <Link>{text('Info text', 'View history')}</Link>
+        <Link to="#">{text('Info text', 'View history')}</Link>
       )}
     />
   ))
@@ -50,7 +52,7 @@ storiesOf('Core/Navigation/Page Header', module)
         },
       ]}
       infoText={(
-        <Link>View history</Link>
+        <Link to="#">View history</Link>
       )}
     />
   ))

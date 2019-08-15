@@ -20,7 +20,7 @@ const Notifications: React.FunctionComponent<Props> = ({ items = [] }) => {
                 type === 'success' && [styles['item--success']],
               )}
             >
-              <Link className={styles.content}>
+              <Link to="#" className={styles.content}>
                 <Icon className={styles.icon} component={iconMap[type]} />
                 <span className={styles.message}>{message}</span>
               </Link>
@@ -30,7 +30,7 @@ const Notifications: React.FunctionComponent<Props> = ({ items = [] }) => {
           <div className={styles['empty-message']}>No new notifications.</div>
         )}
       </ol>
-      <Link className={styles.more}>See all notifications</Link>
+      <Link to="#" className={styles.more}>See all notifications</Link>
     </>
   );
 };

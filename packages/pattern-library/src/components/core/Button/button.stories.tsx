@@ -4,7 +4,7 @@ import { addReadme } from 'storybook-readme';
 import { withKnobs, text, optionsKnob as options } from '@storybook/addon-knobs';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Button from '.';
-import Stack from 'Components/core/Stack';
+import Stack from 'Components/layout/Stack';
 import ButtonReadme from './README.md';
 
 const getSizeOptions = () => options(
@@ -37,12 +37,7 @@ const getVarietyOptions = () => options(
 storiesOf('Core/Button/Style', module)
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
-  .addDecorator(addReadme)
-  .addParameters({
-    readme: {
-      sidebar: ButtonReadme,
-    },
-  })
+  .addParameters({ readme: { sidebar: ButtonReadme } })
   .add('Primary', () => (
     <Stack>
       <Button variety="primary" size={getSizeOptions()}>

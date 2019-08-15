@@ -4,8 +4,10 @@ import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Heading from 'Components/core/Heading';
 import Section from 'Components/core/Section';
 import Prose from '.';
+import README from './README.md';
 
 storiesOf('Core/Typography/Prose', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(PaddingDecorator())
   .add('Basic', () => (
     <Prose>

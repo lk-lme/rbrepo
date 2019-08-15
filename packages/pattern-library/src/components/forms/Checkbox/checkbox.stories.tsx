@@ -4,9 +4,11 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { Checkbox } from '.';
-import Stack from 'Components/core/Stack';
+import Stack from 'Components/layout/Stack';
+import README from './README.md';
 
 storiesOf('Forms/Multiple Choice/Checkbox', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
   .add('Base', () => (

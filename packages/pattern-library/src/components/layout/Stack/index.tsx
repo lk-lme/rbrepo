@@ -17,9 +17,11 @@ const Stack: React.FunctionComponent<Props> = ({
     )}
     {...props}
   >
-    {children.map((child, i) => (
-      <div key={i}>{cloneElement(child)}</div>
-    ))}
+    {
+      Array.isArray(children) ? children.map((child, i) => (
+        <div key={i}>{cloneElement(child)}</div>
+      )) : <div>{children}</div>
+    }
   </div>
 );
 

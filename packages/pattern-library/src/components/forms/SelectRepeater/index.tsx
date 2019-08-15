@@ -111,7 +111,6 @@ const SelectRepeater: React.FunctionComponent<Props> = ({
                     <Radio
                       label="Primary"
                       className={styles['primary-toggle']}
-                      checked={selected}
                     />
                   </FormField>
                 )}

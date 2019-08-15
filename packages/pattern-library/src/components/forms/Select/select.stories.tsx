@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { Select } from '.';
+import README from './README.md';
 
 const items = [
   {
@@ -24,6 +25,7 @@ const items = [
 
 storiesOf('Forms/Select', module)
   .addDecorator(PaddingDecorator({ withBG: true }))
+  .addParameters({ readme: { sidebar: README } })
   .add('Base', () => (
     <Select items={items} />
   ));

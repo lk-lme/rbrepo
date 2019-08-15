@@ -1,3 +1,5 @@
+const path = require('path');
+
 /**
  * Dummy webpack config for IntelliJ path resolution
  */
@@ -11,7 +13,7 @@ module.exports = {
       SVG: path.resolve(__dirname, '../src/svg/'),
       Utils: path.resolve(__dirname, '../src/utils/'),
       Styles: path.resolve(__dirname, '../src/styles/'),
-      Decorators: path.resolve(__dirname, './decorators'),
+      Decorators: path.resolve(__dirname, './decorators'),ction SelectInProjectView
     },
   }
 };

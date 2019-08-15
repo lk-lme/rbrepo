@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { SingleDatePicker } from '.';
+import README from './README.md';
 
 const ControlledPicker = () => {
   const [val, setVal] = useState();
@@ -21,6 +22,7 @@ const ControlledPicker = () => {
 };
 
 storiesOf('Forms/Date Picker', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(PaddingDecorator({ withBG: true }))
   .add('Single input (controlled)', () => (
     <ControlledPicker />

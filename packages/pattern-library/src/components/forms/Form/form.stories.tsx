@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import FormField from 'Components/forms/FormField';
 import NestedSet from 'Components/forms/NestedSet';
@@ -8,13 +9,14 @@ import TextInput from 'Components/forms/TextInput';
 import Radio from 'Components/forms/Radio';
 import Checkbox from 'Components/forms/Checkbox';
 import Select from 'Components/forms/Select';
+import FormActions from 'Components/forms/FormActions';
 import { SingleDatePicker } from 'Components/forms/DatePicker';
 import Button from 'Components/core/Button';
-import Stack from 'Components/core/Stack';
+import Stack from 'Components/layout/Stack';
 
 storiesOf('Forms/Form', module)
   .addDecorator(PaddingDecorator({ withBG: true }))
-  .add('basic demo', () => (
+  .add('Kitchen sink', () => (
     <Form
       initialValues={{
         email: undefined,
@@ -46,9 +48,7 @@ storiesOf('Forms/Form', module)
 
         return errors;
       }}
-      onSubmit={(values, x) => {
-        console.log(values);
-      }}
+      onSubmit={action('Form submitted')}
     >
       {({ handleSubmit, values }) => (
         <form onSubmit={handleSubmit}>
@@ -123,7 +123,9 @@ storiesOf('Forms/Form', module)
             <TextInput type="password" />
           </FormField>
 
-          <Button>Submit</Button>
+          <FormActions>
+            <Button type="submit">Submit</Button>
+          </FormActions>
         </form>
       )}
     </Form>

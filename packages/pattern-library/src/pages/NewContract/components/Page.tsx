@@ -11,7 +11,7 @@ const Page: React.FunctionComponent = ({ children }) => (
       <Header
         user={{
           id: '123',
-          name: 'Alexi Jones',
+          name: 'Alexia Jones',
           avatar:
             'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=120&fit=max&s=b616b2c5b373a80ffc9636ba24f7a4a9',
         }}
@@ -24,18 +24,22 @@ const Page: React.FunctionComponent = ({ children }) => (
           {
             id: 'dashboard',
             title: 'Dashboard',
+            url: '#',
           },
           {
             id: 'contracts',
             title: 'Contracts',
+            url: '#',
           },
           {
             id: 'participants',
             title: 'Participants',
+            url: '#',
           },
           {
             id: 'instruments',
             title: 'Instruments',
+            url: '#',
           },
         ]}
       />
@@ -45,7 +49,7 @@ const Page: React.FunctionComponent = ({ children }) => (
         title="New Contract: AH Futures"
         badges={[{ title: 'Draft', type: 'primary' }]}
         infoText={(
-          <Link>View history</Link>
+          <Link to="#">View history</Link>
         )}
         actions={[
           {

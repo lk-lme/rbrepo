@@ -2,9 +2,9 @@ import React from 'react';
 import cx from 'classnames';
 import Heading from 'Components/core/Heading';
 import Icon from 'Components/core/Icon';
+import Button, { Props as ButtonProps } from 'Components/core/Button';
 import AlertCircleIcon from 'SVG/alert-circle.svg';
 import TickCircleIcon from 'SVG/circle-tick.svg';
-import Button, { Props as ButtonProps } from 'Components/core/Button';
 import InfoIcon from 'SVG/info.svg';
 import CancelIcon from 'SVG/cancel.svg';
 import styles from './alert.scss';
@@ -28,7 +28,6 @@ const Alert: React.FunctionComponent<Props> = ({
     <div
       className={
         // @ts-ignore
-        // @todo: How to appease TSC?
         cx(styles.alert, styles[`alert--${type}`])
       }
     >

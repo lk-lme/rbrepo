@@ -7,8 +7,10 @@ import { action } from '@storybook/addon-actions';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Alert from '.';
 import YenStatementIcon from './yen-statement.svg';
+import README from './README.md';
 
 storiesOf('Core/Alert', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
   .add('Neutral', () => (

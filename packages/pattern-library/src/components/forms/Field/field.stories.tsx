@@ -4,8 +4,10 @@ import PaddingDecorator from 'Decorators/PaddingDecorator';
 import MultipleChoiceInput from 'Components/forms/MultipleChoiceInput';
 import { TextInput } from 'Components/forms/TextInput';
 import Field from '.';
+import README from './README.md';
 
 storiesOf('Forms/Field', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(PaddingDecorator({ withBG: true }))
   .add('With hint', () => (
     <Field

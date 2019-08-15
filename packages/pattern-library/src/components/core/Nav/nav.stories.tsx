@@ -4,6 +4,7 @@ import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import { storiesOf } from '@storybook/react';
 import Nav from '.';
+import README from './README.md';
 
 const navItems = [
   {
@@ -46,6 +47,7 @@ const getNavOptions = () =>
   );
 
 storiesOf('Core/Navigation/Nav', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
   .add('Base', () => <Nav activeID={getNavOptions()} links={navItems} />);

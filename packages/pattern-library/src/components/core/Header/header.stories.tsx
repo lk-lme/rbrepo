@@ -1,15 +1,14 @@
 import React from 'react';
 import faker from 'faker';
 import { storiesOf } from '@storybook/react';
-import {
-  withKnobs,
-  text,
-  boolean
-} from '@storybook/addon-knobs';
+import { addReadme } from 'storybook-readme';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Header from '.';
+import README from './README.md';
 
 storiesOf('Core/Navigation/Header', module)
   .addDecorator(withKnobs)
+  .addParameters({ readme: { sidebar: README } })
   .add('Base', () => (
     <Header
       user={{

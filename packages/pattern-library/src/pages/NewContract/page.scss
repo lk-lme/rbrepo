@@ -1,6 +1,11 @@
 @import '~Styles/utilities/ms';
 @import '~Styles/tokens/typography';
 
+/**
+ * This is just for demo purposes. In reality this
+ * would likely be abstracted to component-based CSS.
+ */
+
 .intro {
   margin-bottom: ms(10);
 }

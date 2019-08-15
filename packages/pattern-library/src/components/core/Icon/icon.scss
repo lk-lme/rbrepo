@@ -1,5 +1,23 @@
+@import '~Styles/utilities/ms';
+
 .icon {
   fill: var(--icon-fill, currentColor);
   width: var(--icon-size, 1em);
   height: var(--icon-size, 1em);
+}
+
+.icon--sm {
+  --icon-size: #{ms(-1)};
+}
+
+.icon--lg {
+  --icon-size: #{ms(1)};
+}
+
+.icon--push-left {
+  margin-left: #{ms(-1)};
+}
+
+.icon--push-right {
+  margin-right: #{ms(-1)};
 }

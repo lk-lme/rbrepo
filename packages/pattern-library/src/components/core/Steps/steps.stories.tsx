@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, optionsKnob as options } from '@storybook/addon-knobs';
 import PaddingDecorator from 'Decorators/PaddingDecorator';
 import Steps from '.';
+import README from './README.md';
 
 const stepData = [
   {
@@ -16,6 +17,7 @@ const stepData = [
     id: 'contract',
     title: 'Contract',
     link: '#',
+    status: 'warning',
   },
   {
     id: 'calendar',
@@ -51,13 +53,14 @@ const getActiveOptions = () =>
       R.indexBy(R.prop('title')),
       R.map(R.prop('id')),
     )(stepData),
-    'contract',
+    'calendar',
     {
       display: 'select',
     },
   );
 
 storiesOf('Core/Navigation/Steps', module)
+  .addParameters({ readme: { sidebar: README } })
   .addDecorator(withKnobs)
   .addDecorator(PaddingDecorator())
   .add('Base', () => (

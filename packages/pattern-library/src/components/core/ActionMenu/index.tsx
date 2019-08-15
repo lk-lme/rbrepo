@@ -86,12 +86,13 @@ const ActionMenu: React.FunctionComponent<ActionMenuProps> = ({
         {actions.map(props => {
           const { id, label, url, onClick } = props;
           return (
-            <li key={id}>
+            <li key={id} className={styles['list__item']}>
               <Button
                 url={url}
                 onClick={onClick}
                 tabIndex={-1}
                 className={styles.item}
+                variety='naked'
               >
                 {handleRenderProp(label, props)}
               </Button>

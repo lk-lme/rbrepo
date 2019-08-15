@@ -68,16 +68,11 @@ const Form: React.FunctionComponent<FormikConfig<{}>> = ({ children, initialValu
     <FormContext.Provider value={{ currentFields, setCurrent }}>
       <Formik initialValues={initialValues} {...wrapCallbacks(props)} >
         {formikProps => (
-          <>
-            <FormErrors />
-            {
-              // @ts-ignore
-              children({
-                ...formikProps,
-                currentFields: currentFields.current,
-              })
-            }
-          </>
+          // @ts-ignore
+          children({
+            ...formikProps,
+            currentFields: currentFields.current,
+          })
         )}
       </Formik>
     </FormContext.Provider>
