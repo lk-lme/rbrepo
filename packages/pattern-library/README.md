@@ -24,3 +24,19 @@ Or build the static Storybook site with the `build-storybook` script:
 yarn run build-storybook
 ```
 
+## Testing
+
+The pattern library uses [Jest](https://jestjs.io) and [React testing library](https://github.com/testing-library/react-testing-library).
+
+You can run tests with:
+
+```
+yarn test
+```
+
+Or run them continuously:
+
+```
+yarn test --watchAll
+```
+
